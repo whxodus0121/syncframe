@@ -2,6 +2,8 @@
 
 ## 현재 상태
 
+GitHub Public 생성 및 최초 Push 성공: https://github.com/whxodus0121/syncframe, main, 06e2603. Description/Topics 9개 설정 확인. 익명 API/HTTP에서 main commit/tree와 636개 파일 SHA·mode 일치, README/docs/GIF/WebM/대표 화면 내용 일치 확인. 실제 비로그인 브라우저 GIF/Mermaid 렌더링 확인 및 github-readme.png 저장. 원본 master=61b7011 보존, force push 없음. 공개 검증 기록을 커밋한 뒤 main만 다시 Push하고 최종 HEAD 일치를 확인한다.
+
 GitHub 공개 준비: publication-final-20261024 회귀 PASS(Go 9, frontend 5, Chromium 13/65.8s, fault 70.80s). 기존 측정 재실행 없이 원본 일치 확인. 과거 로그/Trace의 사용자 경로를 발견해 공개용 치환본 41개 파일을 생성하고 원본은 ignored private 폴더 및 bundle에 보존했다. 기존 master/개발 이력을 재작성하지 않고, 검사한 tree로 별도 main 루트 커밋을 만들어 main만 공개한다. LICENSE는 임의 추가하지 않았다. GitHub 생성/Push 및 원격 검증은 보안 gate 통과 뒤 진행한다.
 
 2026-10-24 20:10 KST: 공개 포트폴리오 검증·문서 편집. 애플리케이션/설정/lock 21개 파일은 e629601과 Git blob 동일(artifacts/portfolio/application-source-check.json). 제품 기능 변경 없음. 측정 도구 cmd/soak, SQL/공개/문서 검사와 Chromium 시연 자동화만 추가했다.

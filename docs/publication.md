@@ -35,6 +35,16 @@ Compose의 syncframe:syncframe 및 root:local-root-only는 의도적으로 공�
 
 패턴 검사 발견 0건이 모든 형식의 비밀 부재를 증명하지는 않는다. 임의의 사설 토큰 형식, 영상 전체 OCR, 외부 복제본은 UNVERIFIED다. GitHub 공개 후에는 익명 HTTP 접근, 원격 tree/commit 일치와 README 이미지 로딩을 별도로 확인한다.
 
+## GitHub 공개 접근 검증
+
+[whxodus0121/syncframe](https://github.com/whxodus0121/syncframe)는 개인 계정의 Public 저장소이며 기본 브랜치는 main이다. 최초 원격 검증에서 636개 파일의 Git blob·mode와 tree가 로컬 커밋에 일치했다. 인증 헤더 없이 README·기술 문서·GIF·WebM·대표 화면을 조회해 HTTP 200과 내용 동일성을 확인했다. 로그인하지 않은 실제 브라우저에서도 GIF와 Mermaid 아키텍처가 표시됐다.
+
+[익명 접근·무결성 원본](../artifacts/publication/remote-verification.json), [실제 GitHub README 화면](../artifacts/publication/github-readme.png)에 검사 당시의 커밋과 결과를 기록한다. 검증 기록을 추가한 후의 커밋은 별도로 다시 비교한다.
+
+```powershell
+python scripts/verify-github-publication.py --repo whxodus0121/syncframe
+```
+
 ## 라이선스
 
 루트 프로젝트 LICENSE는 지정되어 있지 않다. 공개 저장소를 만든다는 이유로 새 라이선스를 추가하지 않는다. 추후 선택 시 간결한 허가 조건의 MIT와 명시적인 특허 허가 조항을 갖는 Apache-2.0을 대안으로 검토할 수 있다. 프로젝트의 선택은 의존성 원문의 조건을 대체하지 않는다. [MIT 원문](https://opensource.org/license/mit), [Apache-2.0 원문](https://www.apache.org/licenses/LICENSE-2.0)

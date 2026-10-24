@@ -1,0 +1,155 @@
+{
+  "at": "2026-10-24T12:19:13.642803+00:00",
+  "status": "PASS",
+  "repository": "https://github.com/whxodus0121/syncframe",
+  "public": true,
+  "defaultBranch": "main",
+  "verifiedCommit": "06e2603fa6eb7485c8af90dda0b6e406498f8e29",
+  "verifiedTree": "b1388adf184f36ab2ea46ea004e293f71170e57b",
+  "description": "Real-time collaborative whiteboard with Go, WebSocket, MySQL, Redis, Kafka, and revision-based history replay.",
+  "topics": [
+    "collaboration",
+    "distributed-systems",
+    "event-sourcing",
+    "golang",
+    "kafka",
+    "mysql",
+    "real-time",
+    "redis",
+    "websocket"
+  ],
+  "anonymousHTTP": true,
+  "repositoryHTTPStatus": 200,
+  "allGitBlobsAndModesMatch": true,
+  "fileCount": 636,
+  "privateBackupNotUploaded": true,
+  "anonymousAssets": [
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/README.md",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 10174,
+      "sha256": "1a5a0dac0874d94611f5fb1da8a107dcaa051cb2f3d8dbd480a0da8b42996b7e",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "docs/architecture.md",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/docs/architecture.md",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 5896,
+      "sha256": "11a3b222cb3c9c0aab8c218a2b82b580ce72bd3c6b0522f55ee2539ec1e4499e",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "docs/browser-qa.md",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/docs/browser-qa.md",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 11109,
+      "sha256": "040f4c916b76bcd74f58c5bcff7ea3cc50d6f414851e51df8aff9f358dc8bacc",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "docs/data-consistency.md",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/docs/data-consistency.md",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 5629,
+      "sha256": "6605ecddb82ca318827f55418ae8f2b013ae0fe21f8f88a148a6fb45518ce06b",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "docs/failure-recovery.md",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/docs/failure-recovery.md",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4037,
+      "sha256": "e2fa48033398aa7ec7cde97cba6e5214727162295689f25b2b5b71f948484f74",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "docs/performance.md",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/docs/performance.md",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 7557,
+      "sha256": "1af5feb82ea45fe14dec68ed062ff91517b13d27457e105af3fca5c3b2a9abd8",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "docs/portfolio.md",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/docs/portfolio.md",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 7454,
+      "sha256": "523f7436a6d094ec48b8eabb29610ba02fdcf57551703d8f055762117633890b",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "docs/publication.md",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/docs/publication.md",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 5618,
+      "sha256": "46421860a23dac78249ae58fa7281e3e9b3c79514a2144081e6256840ff9777e",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "docs/review.md",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/docs/review.md",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4349,
+      "sha256": "b2f167509682cb63729530b020b7db0bf61a7474fc329d026fce363565688ebf",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "docs/testing.md",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/docs/testing.md",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 5828,
+      "sha256": "1fc8a64524603237d433df24a1bb2c37af2205055a6a1d8dbdaed11db2dff1af",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "docs/tradeoffs.md",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/docs/tradeoffs.md",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3174,
+      "sha256": "b81ad8e93f2c50e9d4fcce5e4f1d8228e270ead23efc4dab2d2e077d94b2a0b6",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "artifacts/portfolio/demo/syncframe-demo.gif",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/artifacts/portfolio/demo/syncframe-demo.gif",
+      "status": 200,
+      "contentType": "image/gif",
+      "bytes": 263254,
+      "sha256": "8e1b1c6ad28a888ac519f5d34f26faa1ca7b3a9ddbe9aad4b5e1f6fa044238d6",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "artifacts/portfolio/demo/syncframe-demo.webm",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/artifacts/portfolio/demo/syncframe-demo.webm",
+      "status": 200,
+      "contentType": "audio/webm",
+      "bytes": 1959403,
+      "sha256": "c58d444839d446c267a749e77552895460f6c2762b248cacc75ab2d4ddd65cbe",
+      "matchesGitBlob": true
+    },
+    {
+      "path": "artifacts/browser-qa/screenshots/publication-final-20261024/mobile-properties.png",
+      "url": "https://raw.githubusercontent.com/whxodus0121/syncframe/06e2603fa6eb7485c8af90dda0b6e406498f8e29/artifacts/browser-qa/screenshots/publication-final-20261024/mobile-properties.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 32453,
+      "sha256": "68aeb889e11cad8e92a8b1ce8fd8feb404c734f9bdfac718206ef53ff68dca88",
+      "matchesGitBlob": true
+    }
+  ],
+  "scope": "exact immutable commit at check time; later evidence-only commits are checked again separately"
+}

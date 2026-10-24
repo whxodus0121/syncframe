@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "localLinks": 83,
+  "localLinks": 85,
   "errors": [],
   "externalLinksNotCheckedByThisScript": [
     "http://localhost:8080",
@@ -8,6 +8,7 @@
     "https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html",
     "https://github.com/apache/kafka/blob/4.0.1/LICENSE",
     "https://github.com/redis/redis/blob/7.4.0/LICENSE.txt",
+    "https://github.com/whxodus0121/syncframe",
     "https://kafka.apache.org/40/design/design/",
     "https://opensource.org/license/mit",
     "https://redis.io/docs/latest/develop/pubsub/",

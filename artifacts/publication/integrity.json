@@ -1,9 +1,0 @@
-{
-  "applicationAndMeasuredLoadSourceUnchanged": true,
-  "performanceAndMediaSHA256Files": 362,
-  "allPerformanceAndMediaIdentical": true,
-  "publicCommitIdentitiesUseGitHubNoReply": true,
-  "privateDevelopmentHeadPreserved": "61b7011a6435f64267a05ab0263efaf5c4069c44",
-  "publicHistory": "new main root; old development commits are not parents",
-  "privateBackupExcluded": true
-}

@@ -1,0 +1,78 @@
+name: Lightweight CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  go:
+    name: Go unit tests and vet
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Go tests without infrastructure credentials
+        shell: bash
+        run: go test -count=1 -json ./... | tee "$RUNNER_TEMP/go-tests.jsonl"
+      - name: Go vet
+        run: go vet ./...
+      - name: Report executed and skipped tests
+        if: always()
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          source = Path(os.environ["RUNNER_TEMP"]) / "go-tests.jsonl"
+          events = [json.loads(line) for line in source.read_text().splitlines()] if source.exists() else []
+          passed = [e["Test"] for e in events if e.get("Test") and e.get("Action") == "pass"]
+          skipped = [e["Test"] for e in events if e.get("Test") and e.get("Action") == "skip"]
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as report:
+              report.write(f"## Go tests\nExecuted PASS: {len(passed)}; SKIP: {len(skipped)}.\n\n")
+              report.write("Skipped: " + ", ".join(skipped) + "\n\n")
+              report.write("MySQL/API integration, Chromium E2E and Redis/Kafka/Go fault tests are NOT run by this lightweight workflow.\n")
+          PY
+
+  frontend:
+    name: Frontend tests, TypeScript build and links
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install locked dependencies
+        working-directory: web
+        run: npm ci
+      - name: Frontend unit tests
+        working-directory: web
+        run: npm test
+      - name: TypeScript and Vite build
+        working-directory: web
+        run: npm run build
+      - name: Verify tracked document and media links
+        run: python3 scripts/check-doc-links.py --output "$RUNNER_TEMP/document-links.json"
+      - name: Report verification scope
+        run: |
+          echo 'Frontend unit tests, TypeScript/Vite build and tracked links passed. Browser E2E and infrastructure fault tests are NOT run here.' >> "$GITHUB_STEP_SUMMARY"

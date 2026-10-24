@@ -1,5 +1,7 @@
 # SYNCFRAME
 
+[![Lightweight CI](https://github.com/whxodus0121/syncframe/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/whxodus0121/syncframe/actions/workflows/ci.yml)
+
 MySQL Revision을 기준으로 공동 편집과 과거 상태 재생을 제공하는 Go 기반 실시간 화이트보드.
 
 ## 배경과 해결하려는 문제
@@ -58,7 +60,7 @@ Redis Pub/Sub와 WebSocket 연결만으로는 재접속 시 누락을 알 수 �
 
 SQL 커밋 뒤 별도로 Kafka에 보내면 발행 전에 종료된 이벤트를 잃을 수 있다. 편집과 Outbox를 함께 저장하고 별도 worker가 발행한다. Consumer는 감사 SQL을 저장한 뒤 offset을 커밋하고 PK로 재전달의 효과를 중복시키지 않는다.
 
-Kafka ACK와 SQL published 표시는 원자적이지 않아 중복 발행이 가능하다. 여러 publisher는 Revision 순서도 바꿀 수 있다. 따라서 exactly-once를 주장하지 않는다. 실제 브로커 중단·복구, Outbox drain, 중복 produce와 consumer offset을 검증한다. 정확한 crash-window kill과 poison-message 자동 복구는 UNVERIFIED다. [코드 검토와 잔여 위험](docs/review.md)
+Kafka ACK와 SQL published 표시는 원자적이지 않아 중복 발행이 가능하다. 여러 publisher는 Revision 순서도 바꿀 수 있다. 따라서 exactly-once를 주장하지 않는다. 실제 브로커 중단·복구, Outbox drain, 중복 produce와 consumer offset을 검증한다. 정확한 crash-window kill은 UNVERIFIED이며 poison-message 자동 격리·복구는 미구현 후속 과제다. [코드 검토와 잔여 위험](docs/review.md)
 
 ## 사용 기술과 선택 이유
 
@@ -93,15 +95,19 @@ docker compose --profile multi down
 
 ## 테스트 및 성능 측정
 
-실제 DB·단위·Chromium 전체 E2E·보안 검사·컨테이너 장애 회귀:
+[경량 CI](.github/workflows/ci.yml)는 Go 단위 테스트·go vet·프론트엔드 테스트·TypeScript/Vite 빌드·문서 링크를 검사한다. MySQL/API 통합 검사는 SKIP하며 Chromium과 인프라 장애 검증은 실행하지 않는다.
+
+실제 Docker Compose·Chromium·인프라 장애 회귀는 로컬에서 별도로 실행한다. 매번 UTC 시각과 GUID로 새 RunId를 생성한다:
 
 ```powershell
-./scripts/browser-qa.ps1 -RunId portfolio-final-20261024
+./scripts/browser-qa.ps1
 ```
 
 환경 변수가 없는 `go test ./...`는 인프라 테스트를 건너뛰므로 전체 검증으로 간주하지 않는다. [명령·최신 결과](docs/testing.md) · [브라우저 시나리오·실패 재현](docs/browser-qa.md)
 
 20·50·100명 조건과 20명·5분 지속 부하는 같은 보드의 실제 WebSocket/SQL 경로로 측정한다. **ACK는 SQL 커밋 왕복 지연이며 브라우저 렌더링 지연이 아니다.** 실측 표, 원본 JSON, 자원 조건과 실패율은 [성능 실험](docs/performance.md)에 있다. 최종 단기 측정에서 100명 p95는 약 1.74초로 늘었다. 사용자 수 증가를 처리 가능 인원이나 운영 SLA로 해석하지 않는다.
+
+로컬 Docker Compose에서 측정한 결과다. CI 결과와 구분한다.
 
 | 검증 | 결과 |
 |---|---|
@@ -110,7 +116,7 @@ docker compose --profile multi down
 | 동일 보드 20 / 50 / 100명 | 162.69 / 132.31 / 124.32 edits/s, 관측 실패 0건 |
 | 20명·5분·사용자당 1Hz | 6,000건, ACK p95 169.16ms, 모든 socket·Replay·SQL 일치 |
 
-공개 전 동일 회귀를 반복해 Chromium 13개(65.8s)와 실제 장애 회귀(70.80s)를 재확인했다. [반복 검증 근거](artifacts/publication/validation.json)
+인수 없는 QA 명령도 실제 재실행했다. [자동 RunId와 실행 결과](artifacts/evidence/readme-command.json). 대표 상세 로그는 공개 전 반복의 Chromium 13개(65.8s)와 장애 회귀(70.80s)다. [반복 검증 근거](artifacts/evidence/browser/validation.json)
 
 코드와 테스트를 면접에서 따라갈 수 있도록 [프로젝트 요약·도전 과제·예상 질문·구현 근거](docs/portfolio.md)를 정리했다. [공개 전 민감정보 점검](docs/publication.md)은 로컬 Git 이력과 Trace를 포함한다.
 
@@ -118,7 +124,7 @@ docker compose --profile multi down
 
 - 필드 단위 마지막 커밋 우선이다. 오래된 오프라인 patch가 최신 값을 덮을 수 있다. 더 엄격한 충돌 처리는 필드 버전 조건이나 CRDT가 대안이다.
 - 보드당 500개 lifetime ID(삭제 포함), 100,000 이벤트, API 인스턴스당 200개 WS로 제한한다. full JSON 쓰기·보드 잠금·연결별 polling이 확장 비용이다.
-- Consumer poison message 격리·감시, 보존·compaction, DB/브로커 HA는 없다. 감사 정지가 readiness에 반영되지 않는다.
+- Consumer poison message 격리·감시는 미구현 후속 과제다. 감사 정지가 readiness에 반영되지 않는다. 보존·compaction, DB/브로커 HA도 현재 범위에 없다.
 - 익명 capability 모델이며 이름은 표시명이다. 계정·RBAC·링크 철회·운영 TLS/SASL은 별도 설계가 필요하다.
 - 실제 모바일 장비·Firefox/WebKit·스크린리더·WAN 손실·디스크 장애·전원 손실은 UNVERIFIED다. 모바일은 viewport 기반 마우스·키보드 검증이다.
 

@@ -23,3 +23,15 @@ playwright-report/
 web/test-results/
 web/playwright-report/
 artifacts/private/
+/AGENTS.md
+/PLAN.md
+/PROGRESS.md
+/artifacts/*
+!/artifacts/README.md
+!/artifacts/evidence/
+!/artifacts/portfolio/
+/artifacts/portfolio/*
+!/artifacts/portfolio/demo/
+/artifacts/portfolio/demo/*
+!/artifacts/portfolio/demo/syncframe-demo.gif
+!/artifacts/portfolio/demo/syncframe-demo.webm

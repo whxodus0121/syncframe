@@ -1,0 +1,29 @@
+{
+  "command": "./scripts/browser-qa.ps1",
+  "exitCode": 0,
+  "runId": "20261024-124312804-60874009d0584ee082bbc541b029facc",
+  "automaticRunId": "UTC milliseconds + GUID; no -RunId argument",
+  "defaultCollisionCheck": {
+    "source": "actual PowerShell parameter default AST; no full test mocks",
+    "first": "20261024-124312672-09ab10a8ecd74cd89012b7c6852ab526",
+    "different": true,
+    "second": "20261024-124312683-e2356ac3c117491ebf5c237401f41052"
+  },
+  "localCompose": {
+    "goPassed": 9,
+    "goFaultInitiallySkipped": 1,
+    "faultExecutedSeparately": true,
+    "faultSeconds": 68.82,
+    "frontendPassed": 5,
+    "browser": {
+      "startTime": "2026-10-24T12:44:08.857Z",
+      "duration": 67354.80399999999,
+      "expected": 13,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "scope": "actual local Compose run, separate from lightweight GitHub Actions; no mock backend",
+  "rawOutput": "ignored local browser-qa run folder; backed up separately"
+}

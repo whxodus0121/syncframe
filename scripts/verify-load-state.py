@@ -9,7 +9,7 @@ import subprocess
 from datetime import datetime, timezone
 
 root = Path(__file__).resolve().parent.parent
-folder = root / "artifacts/portfolio"
+folder = root / "artifacts/evidence/loads"
 def query(sql):
     return subprocess.check_output(["docker", "compose", "-p", "syncframe", "exec", "-T", "mysql",
         "mysql", "-N", "-B", "--raw", "-usyncframe", "-psyncframe", "-D", "syncframe", "-e", sql],
@@ -42,5 +42,7 @@ for file in files:
     assert pending == 0 and audit == outbox == len(events)
     results.append({"report": file.name, "boardId": board, "sqlRevision": state["revision"], "events": len(events), "uniqueOperations": len(identities), "objects": len(state["objects"]), "sqlEqualsReplay": state == replay, "outbox": outbox, "pending": pending, "audit": audit, "status": "PASS"})
 output = {"at": datetime.now(timezone.utc).isoformat(), "method": "direct MySQL state and events; full ordered replay; unique operation IDs; outbox/audit counts; no writes", "results": results}
-(folder / "sql-verification.json").write_text(json.dumps(output, indent=2), encoding="utf-8")
+destination = root / "artifacts/private/sql-verification.json"
+destination.parent.mkdir(parents=True, exist_ok=True)
+destination.write_text(json.dumps(output, indent=2), encoding="utf-8")
 print(json.dumps(output, indent=2))

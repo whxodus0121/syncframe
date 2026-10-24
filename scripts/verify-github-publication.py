@@ -17,7 +17,7 @@ from urllib.request import Request, urlopen
 root = Path(__file__).resolve().parent.parent
 parser = argparse.ArgumentParser()
 parser.add_argument("--repo", required=True)
-parser.add_argument("--output", default="artifacts/publication/remote-verification.json")
+parser.add_argument("--output", default="artifacts/evidence/remote-verification.json")
 args = parser.parse_args()
 assert re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", args.repo)
 def git(*args):
@@ -54,10 +54,11 @@ for row in git("ls-tree", "-r", "HEAD").decode().splitlines():
 remote_files = {item["path"]: {"mode": item["mode"], "sha": item["sha"]} for item in tree["tree"] if item["type"] == "blob"}
 assert local_files == remote_files
 assert not any(path.startswith("artifacts/private/") for path in remote_files)
+assert not {"AGENTS.md", "PLAN.md", "PROGRESS.md"}.intersection(remote_files)
 
 paths = ["README.md", *[p.relative_to(root).as_posix() for p in sorted((root / "docs").glob("*.md"))],
          "artifacts/portfolio/demo/syncframe-demo.gif", "artifacts/portfolio/demo/syncframe-demo.webm",
-         "artifacts/browser-qa/screenshots/publication-final-20261024/mobile-properties.png"]
+         "artifacts/evidence/screenshots/mobile.png"]
 def verify(path):
     url = "https://raw.githubusercontent.com/" + args.repo + "/" + head + "/" + quote(path, safe="/")
     status, content_type, content = get(url)

@@ -24,7 +24,11 @@ Consumer의 잘못된 JSON은 해당 goroutine 종료로 이어지고, 존재하
 
 SQL 실패 주입은 임의 운영 endpoint 대신 테스트 전용 trigger를 사용한다. 앱 계정은 그대로 두고 `TEST_ADMIN_DSN` 계정으로 trigger만 생성·삭제한다. 전역 `log_bin_trust_function_creators`를 변경하거나 앱에 SUPER를 부여하지 않는다.
 
-## 복구 관찰
+## 후속 개선
+
+Kafka poison message 처리와 Consumer 정지 감지는 후속 개선 사항이다. 현재는 잘못된 JSON에서 goroutine이 종료되고 FK 오류에서는 재시도가 계속된다. 격리·DLQ, worker 상태 지표와 경보, 명시적인 재처리 정책을 우선 검토한다. 이 정리에서는 핵심 백엔드나 해당 장애 동작을 변경하지 않았으며, 자동 복구가 구현되었다고 주장하지 않는다.
+
+## 복구 상태 조회
 
 ```sh
 docker compose logs --tail 50 api api2

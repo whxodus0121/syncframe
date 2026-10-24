@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-24T13:02:13.320544+00:00",
+  "historicalBlobs": 342,
+  "workingFiles": 94,
+  "zipEntries": 1213,
+  "findings": [],
+  "status": "PASS",
+  "scope": "history reachable from main; tracked/unignored working files and ZIP entries; pattern-based, not a proof of absence",
+  "knownPublicDemoCredentials": [
+    "syncframe:syncframe",
+    "root:local-root-only"
+  ],
+  "notVerified": [
+    "remote refs not present locally",
+    "third-party hosted copies",
+    "video OCR",
+    "arbitrary proprietary token formats"
+  ]
+}

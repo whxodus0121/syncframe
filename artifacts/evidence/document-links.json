@@ -1,0 +1,597 @@
+{
+  "status": "PASS",
+  "localLinks": 113,
+  "errors": [],
+  "externalLinksNotCheckedByThisScript": [
+    "http://localhost:8080",
+    "http://localhost:8081",
+    "https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html",
+    "https://github.com/apache/kafka/blob/4.0.1/LICENSE",
+    "https://github.com/redis/redis/blob/7.4.0/LICENSE.txt",
+    "https://github.com/whxodus0121/syncframe",
+    "https://github.com/whxodus0121/syncframe/actions/workflows/ci.yml",
+    "https://github.com/whxodus0121/syncframe/actions/workflows/ci.yml/badge.svg?branch=main",
+    "https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/browser-qa/screenshots/portfolio-final-20261024/history-response-in-flight.png",
+    "https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/browser-qa/screenshots/portfolio-final-20261024/three-session-recovery.png",
+    "https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/load-results.json",
+    "https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/portfolio/burst-100.json",
+    "https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/portfolio/burst-20.json",
+    "https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/portfolio/burst-50.json",
+    "https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/portfolio/burst-original.json",
+    "https://github.com/whxodus0121/syncframe/tree/678c58e0a0c9bce89390bbe836b4514b3d1198e4",
+    "https://github.com/whxodus0121/syncframe/tree/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts",
+    "https://github.com/whxodus0121/syncframe/tree/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/browser-qa/",
+    "https://kafka.apache.org/40/design/design/",
+    "https://opensource.org/license/mit",
+    "https://redis.io/docs/latest/develop/pubsub/",
+    "https://www.apache.org/licenses/LICENSE-2.0",
+    "https://www.mysql.com/about/legal/licensing/oem/"
+  ],
+  "checked": [
+    {
+      "source": "README.md",
+      "target": "artifacts/portfolio/demo/syncframe-demo.gif",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "artifacts/portfolio/demo/syncframe-demo.webm",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "web/demo/portfolio.spec.ts",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/architecture.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/data-consistency.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/failure-recovery.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/review.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/tradeoffs.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": ".github/workflows/ci.yml",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/testing.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/browser-qa.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/performance.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "artifacts/evidence/readme-command.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "artifacts/evidence/browser/validation.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/portfolio.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/publication.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/publication.md#라이선스",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/evidence/browser/results.json",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/evidence/browser/browser-tests.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/evidence/browser/infrastructure-regression.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/evidence/browser/environment.json",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/evidence/readme-command.json",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/evidence/failure-draft-overwrite/trace.zip",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/evidence/screenshots/mobile-before.png",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/evidence/screenshots/mobile.png",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/evidence/screenshots/desktop.png",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/evidence/screenshots/tablet.png",
+      "exists": true
+    },
+    {
+      "source": "docs/browser-qa.md",
+      "target": "../artifacts/evidence/screenshots/history-overlay.png",
+      "exists": true
+    },
+    {
+      "source": "docs/failure-recovery.md",
+      "target": "review.md",
+      "exists": true
+    },
+    {
+      "source": "docs/performance.md",
+      "target": "../cmd/soak/main.go",
+      "exists": true
+    },
+    {
+      "source": "docs/performance.md",
+      "target": "../artifacts/evidence/loads/sql-verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/performance.md",
+      "target": "../artifacts/evidence/loads/burst-final-20.json",
+      "exists": true
+    },
+    {
+      "source": "docs/performance.md",
+      "target": "../artifacts/evidence/loads/burst-final-50.json",
+      "exists": true
+    },
+    {
+      "source": "docs/performance.md",
+      "target": "../artifacts/evidence/loads/burst-final-100.json",
+      "exists": true
+    },
+    {
+      "source": "docs/performance.md",
+      "target": "../artifacts/evidence/loads/soak-20-5m.json",
+      "exists": true
+    },
+    {
+      "source": "docs/performance.md",
+      "target": "../artifacts/evidence/loads/resources.json",
+      "exists": true
+    },
+    {
+      "source": "docs/performance.md",
+      "target": "../artifacts/evidence/loads/resource-summary.json",
+      "exists": true
+    },
+    {
+      "source": "docs/performance.md",
+      "target": "../artifacts/evidence/loads/container-health.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "performance.md",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../internal/store/store.go#L95",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../internal/store/schema.sql",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../internal/store/store_integration_test.go",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../internal/model/model.go",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../internal/model/model_test.go",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../web/src/model.test.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../internal/store/store.go#L180",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../web/e2e/browser-qa.spec.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../internal/httpapi/server.go",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../web/src/useBoard.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../tests/system_test.go",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../internal/pipeline/pipeline.go",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../internal/store/store.go#L216",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../web/e2e/qa/helpers.ts",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "../cmd/soak/main.go",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "performance.md",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "review.md",
+      "exists": true
+    },
+    {
+      "source": "docs/portfolio.md",
+      "target": "testing.md",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "../artifacts/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "../artifacts/evidence/curation.json",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "../artifacts/evidence/application-source-check.json",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "../artifacts/evidence/security-audit.json",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "../artifacts/evidence/document-links.json",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "../scripts/verify-github-publication.py",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "../artifacts/evidence/readme-command.json",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "testing.md",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "../artifacts/evidence/dependency-license-inventory.json",
+      "exists": true
+    },
+    {
+      "source": "docs/review.md",
+      "target": "portfolio.md",
+      "exists": true
+    },
+    {
+      "source": "docs/review.md",
+      "target": "testing.md",
+      "exists": true
+    },
+    {
+      "source": "docs/review.md",
+      "target": "performance.md",
+      "exists": true
+    },
+    {
+      "source": "docs/review.md",
+      "target": "failure-recovery.md",
+      "exists": true
+    },
+    {
+      "source": "docs/review.md",
+      "target": "tradeoffs.md",
+      "exists": true
+    },
+    {
+      "source": "docs/testing.md",
+      "target": "../artifacts/evidence/readme-command.json",
+      "exists": true
+    },
+    {
+      "source": "docs/testing.md",
+      "target": "../artifacts/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/testing.md",
+      "target": "../artifacts/evidence/browser/go-tests.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/testing.md",
+      "target": "../artifacts/evidence/browser/frontend-tests.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/testing.md",
+      "target": "../artifacts/evidence/browser/frontend-build.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/testing.md",
+      "target": "../artifacts/evidence/browser/browser-tests.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/testing.md",
+      "target": "../artifacts/evidence/browser/infrastructure-regression.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/testing.md",
+      "target": "../artifacts/evidence/browser/results.json",
+      "exists": true
+    },
+    {
+      "source": "docs/testing.md",
+      "target": "browser-qa.md",
+      "exists": true
+    },
+    {
+      "source": "docs/testing.md",
+      "target": "performance.md",
+      "exists": true
+    },
+    {
+      "source": "docs/testing.md",
+      "target": "failure-recovery.md#후속-개선",
+      "exists": true
+    },
+    {
+      "source": "docs/tradeoffs.md",
+      "target": "review.md",
+      "exists": true
+    },
+    {
+      "source": "docs/tradeoffs.md",
+      "target": "performance.md",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "portfolio/demo/syncframe-demo.gif",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "portfolio/demo/syncframe-demo.webm",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/screenshots/mobile-before.png",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/screenshots/mobile.png",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/screenshots/desktop.png",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/screenshots/tablet.png",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/screenshots/offline-pending.png",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/screenshots/history-overlay.png",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/failure-draft-overwrite/trace.zip",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/readme-command.json",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/browser/results.json",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/browser/browser-tests.txt",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/browser/go-tests.txt",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/browser/frontend-tests.txt",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/browser/frontend-build.txt",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/browser/infrastructure-regression.txt",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/loads/burst-final-20.json",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/loads/burst-final-50.json",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/loads/burst-final-100.json",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/loads/soak-20-5m.json",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/loads/sql-verification.json",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/loads/resources.json",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/curation.json",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/security-audit.json",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "evidence/document-links.json",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "../docs/testing.md",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "../docs/browser-qa.md",
+      "exists": true
+    },
+    {
+      "source": "artifacts/README.md",
+      "target": "../docs/performance.md",
+      "exists": true
+    }
+  ]
+}

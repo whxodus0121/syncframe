@@ -1,0 +1,207 @@
+{
+  "baseline": "678c58e0a0c9bce89390bbe836b4514b3d1198e4",
+  "backupFiles": 579,
+  "backupZIPVerified": true,
+  "originalArtifactBytes": 67003730,
+  "retainedEvidenceBytes": 4979697,
+  "retained": [
+    {
+      "path": "artifacts/evidence/loads/burst-final-20.json",
+      "originalPath": "artifacts/portfolio/burst-final-20.json",
+      "bytes": 830,
+      "sha256": "143cab20e314881c1c4c8211909f0ebef4343e6f2b6f14c59f8cb5e3ddd43f52",
+      "sourceGitBlob": "1497f65f2743330df1a2538d4be6da8828dd22fb"
+    },
+    {
+      "path": "artifacts/evidence/loads/burst-final-50.json",
+      "originalPath": "artifacts/portfolio/burst-final-50.json",
+      "bytes": 835,
+      "sha256": "bf7d58a4a38b36fdc52c2f0576fd2d71d72ab47d888edc8e62090623861bece7",
+      "sourceGitBlob": "4bc5a477d29a02781ecca22e4212c9a92e23cbd1"
+    },
+    {
+      "path": "artifacts/evidence/loads/burst-final-100.json",
+      "originalPath": "artifacts/portfolio/burst-final-100.json",
+      "bytes": 837,
+      "sha256": "5385e432c907dd09e3dac6e3caac9012037ffa39e0b2b67592a9720cb136f25c",
+      "sourceGitBlob": "829d24cf5c50cd223aa69ea890e46eeec4805387"
+    },
+    {
+      "path": "artifacts/evidence/loads/soak-20-5m.json",
+      "originalPath": "artifacts/portfolio/soak-20-5m.json",
+      "bytes": 795,
+      "sha256": "394d7a5eed7b9632eb715e56dc8caf274c086e266afd3dbdd09470d07e8dce0c",
+      "sourceGitBlob": "0adc3b88cbd2d4d85263fa33232da573d218e478"
+    },
+    {
+      "path": "artifacts/evidence/loads/resources.json",
+      "originalPath": "artifacts/portfolio/resources.json",
+      "bytes": 34388,
+      "sha256": "2c82cc6efe31ef5ee1566e8f0148ceeb45ab36c55b627eb586570437893abb61",
+      "sourceGitBlob": "5138a76df72a3fd7a01bd209c619b79db12109de"
+    },
+    {
+      "path": "artifacts/evidence/loads/resource-summary.json",
+      "originalPath": "artifacts/portfolio/resource-summary.json",
+      "bytes": 500,
+      "sha256": "21f0b887493cf9f8756b7c2a66243dbe46539c4b65d0af7f24cb4c32979bcfff",
+      "sourceGitBlob": "cc93eb71f1a4ef53cab5bf0ec13b70875bf1156d"
+    },
+    {
+      "path": "artifacts/evidence/loads/container-health.txt",
+      "originalPath": "artifacts/portfolio/container-health.txt",
+      "bytes": 247,
+      "sha256": "03912182642a35bb29b691cbebd899f66d7b1b12512683b67a3383d8201bce45",
+      "sourceGitBlob": "d3552a2bb0c6afb13a6f2f190173f44a0f8bf0fe"
+    },
+    {
+      "path": "artifacts/evidence/loads/sql-verification.json",
+      "originalPath": "artifacts/portfolio/sql-verification.json",
+      "bytes": 1474,
+      "sha256": "6ac34029b51fa200960300136e3b02001ad54458f77f403ba3f335de5076c701",
+      "sourceGitBlob": "9673ffa8f25608a9fbfbf9f8863617345de58f88"
+    },
+    {
+      "path": "artifacts/evidence/loads/environment.json",
+      "originalPath": "artifacts/portfolio/environment.json",
+      "bytes": 375,
+      "sha256": "8d1085971ec1e1e2c254fd6ec29b2226dcd346d9ef3cd8b7a99227f01795cefd",
+      "sourceGitBlob": "ce7ebbca8079d9beb56cdef4bb8c1ef74a739423"
+    },
+    {
+      "path": "artifacts/evidence/browser/go-tests.txt",
+      "originalPath": "artifacts/browser-qa/runs/publication-final-20261024/go-tests.txt",
+      "bytes": 1319,
+      "sha256": "2d01353314f252abb7289715e358eaf281ecd6928d598f781e11064cc4ced0c0",
+      "sourceGitBlob": "b7f70d74d5fa07ab476082b1ee9c04c1c29c0d85"
+    },
+    {
+      "path": "artifacts/evidence/browser/frontend-tests.txt",
+      "originalPath": "artifacts/browser-qa/runs/publication-final-20261024/frontend-tests.txt",
+      "bytes": 217,
+      "sha256": "a4bc0f42166299b91c8cc05aa1abf2764b49819d1677356e1204158701759d4c",
+      "sourceGitBlob": "30c28b5eeb9615acd673647de683f989b5435d34"
+    },
+    {
+      "path": "artifacts/evidence/browser/frontend-build.txt",
+      "originalPath": "artifacts/browser-qa/runs/publication-final-20261024/frontend-build.txt",
+      "bytes": 402,
+      "sha256": "39c6e193db9490d5a34436848e13095ce308146c376dc9f620d4f9a5ad218771",
+      "sourceGitBlob": "eae59372774ba781e44ade14ab3b8678883dc2a5"
+    },
+    {
+      "path": "artifacts/evidence/browser/browser-tests.txt",
+      "originalPath": "artifacts/browser-qa/runs/publication-final-20261024/browser-tests.txt",
+      "bytes": 1888,
+      "sha256": "625e8bc01cacd3316eb46fbcd03e72658346006c98e694428f52fdc434bd0fed",
+      "sourceGitBlob": "7b9be183f596609c5338945741fab11242f1ef05"
+    },
+    {
+      "path": "artifacts/evidence/browser/infrastructure-regression.txt",
+      "originalPath": "artifacts/browser-qa/runs/publication-final-20261024/infrastructure-regression.txt",
+      "bytes": 940,
+      "sha256": "10ed69654fc22baa8c601f36e98eb46f3364bb4c8a56fac5828bfe90f9837c78",
+      "sourceGitBlob": "924ed7f9ecab5f6c330cd00264f0a6ba2ee2bb40"
+    },
+    {
+      "path": "artifacts/evidence/browser/results.json",
+      "originalPath": "artifacts/browser-qa/runs/publication-final-20261024/results.json",
+      "bytes": 30128,
+      "sha256": "66907a21d6b374ad51131b66b3e2cebb03124b105f15ada3efbbdacd9ccce385",
+      "sourceGitBlob": "166a7791fa958ac8537365cd7747a07f27256df7"
+    },
+    {
+      "path": "artifacts/evidence/browser/environment.json",
+      "originalPath": "artifacts/browser-qa/runs/publication-final-20261024/environment.json",
+      "bytes": 176,
+      "sha256": "78680a1bdf9ed6f6c871a7322e1c15fd8ce8afc7263bc58ded6eca2a6d6a2cf1",
+      "sourceGitBlob": "d64cb8b372971461f2a7a671f489e9e4c243d8a7"
+    },
+    {
+      "path": "artifacts/evidence/browser/validation.json",
+      "originalPath": "artifacts/publication/validation.json",
+      "bytes": 772,
+      "sha256": "9c835422c75761df0893fd03edca43040b1894cd9dbf177e676686760b623316",
+      "sourceGitBlob": "004423f71839e6befa2a8e3e40001e281b937df3"
+    },
+    {
+      "path": "artifacts/evidence/dependency-license-inventory.json",
+      "originalPath": "artifacts/publication/dependency-license-inventory.json",
+      "bytes": 6336,
+      "sha256": "8166e8317f59f2432cb999343f4be81cfad280b82c83b75c93a757abed0f9ce6",
+      "sourceGitBlob": "fb6116ae300d204c612ce7456180d1096ed0f05e"
+    },
+    {
+      "path": "artifacts/evidence/application-source-check.json",
+      "originalPath": "artifacts/portfolio/application-source-check.json",
+      "bytes": 4538,
+      "sha256": "150294cd430332781c451dfdb133014ce8c483b3f151ae450b0e0053d3feddf5",
+      "sourceGitBlob": "95da8da3afd519b0cbb996458677f1189bc7c54c"
+    },
+    {
+      "path": "artifacts/evidence/screenshots/desktop.png",
+      "originalPath": "artifacts/browser-qa/screenshots/publication-final-20261024/desktop-properties.png",
+      "bytes": 71177,
+      "sha256": "12d34d9e2245cb437d2369f8c36514ced3f35b38264e843e9af2e4cd09bc3b97",
+      "sourceGitBlob": "adceea6ca519cb06fa4e0a836f29d60248d6eb07"
+    },
+    {
+      "path": "artifacts/evidence/screenshots/tablet.png",
+      "originalPath": "artifacts/browser-qa/screenshots/publication-final-20261024/tablet-properties.png",
+      "bytes": 36324,
+      "sha256": "c3deeab74a78f212cc012825d7884918f2406a14cdda520b60741f07d9388117",
+      "sourceGitBlob": "6def5ee098643fc780b6a7a4ca6fd20891561cd7"
+    },
+    {
+      "path": "artifacts/evidence/screenshots/mobile.png",
+      "originalPath": "artifacts/browser-qa/screenshots/publication-final-20261024/mobile-properties.png",
+      "bytes": 32453,
+      "sha256": "68aeb889e11cad8e92a8b1ce8fd8feb404c734f9bdfac718206ef53ff68dca88",
+      "sourceGitBlob": "e2619d7476946cb2f6799774407929641852d370"
+    },
+    {
+      "path": "artifacts/evidence/screenshots/mobile-before.png",
+      "originalPath": "artifacts/browser-qa/screenshots/baseline/mobile-empty.png",
+      "bytes": 34612,
+      "sha256": "f8c35af052ee379a8c0c7890f61e5042904154980a7f3ccd77a848fd68d6c9ee",
+      "sourceGitBlob": "ff95705cc392ce8b40da82b2d75c82b9899e5b55"
+    },
+    {
+      "path": "artifacts/evidence/screenshots/offline-pending.png",
+      "originalPath": "artifacts/portfolio/demo/03-offline-pending.png",
+      "bytes": 67924,
+      "sha256": "068593f1bcaeef9a3a0ff7a26e59912ad120a84e68d7380523cf91ed9aa5ede1",
+      "sourceGitBlob": "9ee7d2e6cbe79e7910a66e26fa2e738f339f9e1b"
+    },
+    {
+      "path": "artifacts/evidence/screenshots/history-overlay.png",
+      "originalPath": "artifacts/portfolio/demo/06-history-overlay.png",
+      "bytes": 72886,
+      "sha256": "bc3ca640f02a9eac52e9c96cd3e8c88d0cfd444bedb89a6e3e887103a2cdc6a3",
+      "sourceGitBlob": "0502fd06cb49f616687cddde3280fd00ccedc7e4"
+    },
+    {
+      "path": "artifacts/evidence/failure-draft-overwrite/trace.zip",
+      "originalPath": "artifacts/browser-qa/runs/repro-drafts-loading/failures/browser-qa-unsubmitted-tex-ebda5-ther-user-s-committed-patch/trace.zip",
+      "bytes": 2354667,
+      "sha256": "380fe1931dbf128e7bda11df038266ab9565f2328e691afc94bb6b0419261725",
+      "sourceGitBlob": "aeb826ad45e740d89a22e89229d848f4e931b612"
+    },
+    {
+      "path": "artifacts/portfolio/demo/syncframe-demo.gif",
+      "originalPath": "artifacts/portfolio/demo/syncframe-demo.gif",
+      "bytes": 263254,
+      "sha256": "8e1b1c6ad28a888ac519f5d34f26faa1ca7b3a9ddbe9aad4b5e1f6fa044238d6",
+      "sourceGitBlob": "5164af80642c75bf69a4ae11192f8a3460bc2e5a"
+    },
+    {
+      "path": "artifacts/portfolio/demo/syncframe-demo.webm",
+      "originalPath": "artifacts/portfolio/demo/syncframe-demo.webm",
+      "bytes": 1959403,
+      "sha256": "c58d444839d446c267a749e77552895460f6c2762b248cacc75ab2d4ddd65cbe",
+      "sourceGitBlob": "de0ec32899e75ea9a944a3be9c31f5139e931434"
+    }
+  ],
+  "historicalEvidence": "unchanged history remains accessible at baseline commit; local ZIP and Git bundle preserve originals; no history rewrite",
+  "hashScope": "published Git blob bytes, retaining original text normalization; local backup separately preserves workspace bytes"
+}

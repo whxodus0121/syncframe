@@ -1,6 +1,6 @@
 # 실제 브라우저 종합 QA
 
-2026-10-24 KST. 실제 Docker Compose의 Go·MySQL·Redis·Kafka와 Chromium을 사용했다. 백엔드 응답이나 WebSocket을 가짜 구현으로 교체하지 않았다. 원시 결과는 [artifacts/browser-qa](../artifacts/browser-qa/)에 보존한다.
+2026-10-24 KST. 실제 Docker Compose의 Go·MySQL·Redis·Kafka와 Chromium을 사용했다. 백엔드 응답이나 WebSocket을 가짜 구현으로 교체하지 않았다. 원시 결과는 [artifacts/browser-qa](https://github.com/whxodus0121/syncframe/tree/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/browser-qa/)에 보존한다.
 
 ## 재현 명령
 
@@ -22,33 +22,22 @@ $env:QA_RUN_ID='unique-run-id'
 npm run browser:qa
 ```
 
-`QA_RUN_ID` 생략 시 UTC timestamp로 결과를 분리한다. 직접 실행한 실패 Trace를 Git에 보존하기 전에는 `scripts/sanitize-browser-traces.ps1`을 실행한다. 통합 스크립트는 자동 실행한다. Trace의 URL·쿠키·JSON 등에 포함된 로컬 테스트 capability를 가리고 DOM·입력·시각·네트워크 타이밍을 유지한다. 테스트 진단 로그도 capability를 가린다.
+통합 PowerShell 스크립트는 UTC 밀리초 시각과 GUID를 QA_RUN_ID로 전달한다. 브라우저 suite를 직접 실행하고 QA_RUN_ID를 생략하면 UTC timestamp를 사용한다. 직접 실행한 실패 Trace를 Git에 보존하기 전에는 `scripts/sanitize-browser-traces.ps1`을 실행한다. 통합 스크립트는 자동 실행한다. Trace의 URL·쿠키·JSON 등에 포함된 로컬 테스트 capability를 가리고 DOM·입력·시각·네트워크 타이밍을 유지한다. 테스트 진단 로그도 capability를 가린다.
 
-## 실행 결과
+## 실행 결과와 증거 구성
 
-**`./scripts/browser-qa.ps1 -RunId portfolio-final-20261024`: PASS / exit 0**
+대표 상세 원본은 publication-final-20261024 실행이다. Go 9개, frontend 5개, Chromium 13개(65.8s), 실제 Redis/Kafka/Go 장애 회귀(70.80s)가 통과했다. [E2E JSON](../artifacts/evidence/browser/results.json), [브라우저 로그](../artifacts/evidence/browser/browser-tests.txt), [장애 로그](../artifacts/evidence/browser/infrastructure-regression.txt), [환경](../artifacts/evidence/browser/environment.json)에 근거를 남긴다.
 
-| 실행 명령 | 결과 | 증거 |
-|---|---|---|
-| `docker compose --profile multi up -d --build --wait` | PASS, 5개 서비스 healthy | runs/portfolio-final-20261024/compose.txt, services.json |
-| `go test -count=1 -v ./...` | PASS, 실제 MySQL/HTTP/WS 포함 9개; 별도 fault는 여기서 SKIP | go-tests.txt |
-| `go vet ./...` | PASS | go-vet.txt |
-| `go run golang.org/x/vuln/cmd/govulncheck@v1.9.0 ./...` | PASS, 발견 0건 | go-security.txt |
-| `npm ci`, `npm run build`, `npm audit` | PASS, strict TypeScript/build 및 advisory 0건 | frontend-*.txt |
-| `npm test` | PASS, 5개 | frontend-tests.txt |
-| `npm run browser:qa` | **PASS, 13개 / 0 FAIL, 59.3s** | browser-tests.txt, results.json |
-| `go test -count=1 -timeout 5m -v ./tests -run TestMultiServerAndInfrastructureFaults` | PASS, 68.19s, 실제 Redis/Kafka/Go 장애 회귀 | infrastructure-regression.txt |
+인수 없는 `./scripts/browser-qa.ps1`도 실제 재실행해 UTC 밀리초 시각과 GUID로 새 RunId가 생성되는지 확인했다. 이 실행의 Chromium 13개(67.4s)와 실제 장애 회귀(68.82s)도 통과했다. [명령 실행 기록](../artifacts/evidence/readme-command.json)은 이 실행을 별도로 구분한다.
 
-위 증거 경로의 기준 폴더는 [runs/portfolio-final-20261024](../artifacts/browser-qa/runs/portfolio-final-20261024/)이다. 전체 출력은 [통합 실행 로그](../artifacts/portfolio/final-verification.txt)에 있다.
-
-이전 QA의 final-20261024 결과(13개, 59.8s)는 원본 폴더에 유지한다. 최신 반복에서도 13개 모두 통과했고 skip/flaky는 0건이다. 대표 시연은 [GIF](../artifacts/portfolio/demo/syncframe-demo.gif)와 [원본 WebM](../artifacts/portfolio/demo/syncframe-demo.webm)에 있다.
+[공개 증거 목록](../artifacts/README.md)은 대표 화면과 수정 전 초안 결함 Trace 하나를 제공한다. 반복 실행 전체는 정리 전 공개 커밋과 로컬 백업에 남아 있다. 현재 main에서 제외한 자료를 삭제된 증거로 해석하지 않으며, 전체 E2E의 attachment 경로는 원래 실행 메타데이터로 유지한다. 경량 CI는 이 브라우저·인프라 검사를 실행하지 않는다.
 
 ## 환경과 실제 입력
 
 - 대상: **http://localhost:8080**, 보조 Go 서버 **http://localhost:8081**.
 - 독립 Chromium context 3개, QA Alice / QA Bob / QA Cara. 이름만 sessionStorage에서 초기화하며 권한·문서·통신은 실제 서비스로 생성한다.
 - 데스크톱 1440×960, 태블릿 768×1024, 모바일 390×844 viewport. 실제 모바일 장비나 터치 키보드 평가는 아니다.
-- 브라우저·Node·Playwright 버전은 최종 폴더 `environment.json`, 서비스 상태는 `services.json`에 기록한다.
+- 브라우저·Node·Playwright 버전은 대표 environment.json에 기록한다. 각 실행의 전체 서비스 상태는 로컬 원본 실행 폴더에서 보존한다.
 - 로딩 테스트는 실제 HTTP 요청을 보류한 뒤 `route.continue()`로 원래 Go 서버에 전송한다. 응답 본문·상태를 대체하지 않는다.
 - Pause 검사는 브라우저 clock을 전진시켜 정지가 유지되는지 확인한다. 문서 상태/이벤트를 조작하지 않는다.
 
@@ -99,7 +88,7 @@ B01/B03/B04는 baseline, B05는 repro-controls, B02/B06은 repro-drafts-loading�
 - final-20261024: 13 PASS / 0 FAIL, 59.8s.
 - portfolio-final-20261024: **13 PASS / 0 FAIL, 59.3s**, 이후 실제 인프라 장애 회귀도 PASS(68.19s).
 
-실패 Trace, 화면, 진단 JSON과 필요한 경우 Video를 각 실행 폴더에 보존했다. 예전 실패 결과를 최종 PASS로 덮어쓰지 않았다.
+실패 Trace, 화면, 진단 JSON과 필요한 경우 Video는 원래 실행 폴더와 로컬 백업에 보존한다. 공개 main에는 [초안 덮어쓰기 Trace](../artifacts/evidence/failure-draft-overwrite/trace.zip) 하나를 대표로 두고, 예전 실패 결과를 최종 PASS로 덮어쓰지 않는다.
 
 ## 화면 비교
 
@@ -107,9 +96,9 @@ B01/B03/B04는 baseline, B05는 repro-controls, B02/B06은 repro-drafts-loading�
 
 | 모바일 수정 전 | 모바일 수정 후 |
 |---|---|
-| ![이력이 도구를 가리는 초기 화면](../artifacts/browser-qa/screenshots/baseline/mobile-empty.png) | ![캔버스와 하단 속성 편집](../artifacts/browser-qa/screenshots/portfolio-final-20261024/mobile-properties.png) |
+| ![이력이 도구를 가리는 초기 화면](../artifacts/evidence/screenshots/mobile-before.png) | ![캔버스와 하단 속성 편집](../artifacts/evidence/screenshots/mobile.png) |
 
-[데스크톱](../artifacts/browser-qa/screenshots/portfolio-final-20261024/desktop-properties.png) · [태블릿](../artifacts/browser-qa/screenshots/portfolio-final-20261024/tablet-properties.png) · [3세션 복구](../artifacts/browser-qa/screenshots/portfolio-final-20261024/three-session-recovery.png) · [이력 Overlay](../artifacts/browser-qa/screenshots/portfolio-final-20261024/history-overlay.png) · [지연 응답](../artifacts/browser-qa/screenshots/portfolio-final-20261024/history-response-in-flight.png)
+[데스크톱](../artifacts/evidence/screenshots/desktop.png) · [태블릿](../artifacts/evidence/screenshots/tablet.png) · [3세션 복구](https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/browser-qa/screenshots/portfolio-final-20261024/three-session-recovery.png) · [이력 Overlay](../artifacts/evidence/screenshots/history-overlay.png) · [지연 응답](https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/browser-qa/screenshots/portfolio-final-20261024/history-response-in-flight.png)
 
 ## 공개 시연 재현
 

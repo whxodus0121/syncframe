@@ -15,7 +15,7 @@ root = Path(__file__).resolve().parent.parent
 parser = argparse.ArgumentParser()
 parser.add_argument("--ref", help="inspect only history reachable from this publication ref; default is every local ref")
 parser.add_argument("--working-only", action="store_true", help="preflight before creating a clean publication root")
-parser.add_argument("--output", default="artifacts/portfolio/public-audit.json")
+parser.add_argument("--output", default="artifacts/evidence/security-audit.json")
 args = parser.parse_args()
 def git(*args):
     return subprocess.check_output(["git", *args], cwd=root)

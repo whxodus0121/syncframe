@@ -1,4 +1,4 @@
-param([string]$RunId = (Get-Date -Format 'yyyyMMdd-HHmmss'))
+param([string]$RunId = ([DateTime]::UtcNow.ToString('yyyyMMdd-HHmmssfff') + '-' + [Guid]::NewGuid().ToString('N')))
 $ErrorActionPreference = 'Stop'
 if ($RunId -notmatch '^[a-zA-Z0-9_-]+$') { throw 'RunId must contain only letters, digits, hyphens or underscores' }
 $qaProjectRoot = Split-Path -Parent $PSScriptRoot

@@ -17,7 +17,7 @@
 - ACK 지연: WriteJSON 직전부터 해당 Operation ID의 ACK 수신까지. SQL commit과 loopback·클라이언트 스케줄링을 포함하며 event의 타 클라이언트 도착·화면 렌더링 지연은 포함하지 않는다.
 - 처리량: 성공 ACK 수 / 편집 구간 시간. 보드 생성·연결·최종 수렴·감사 drain은 시간에서 제외한다.
 - p50/p95/p99: 성공 ACK 표본을 정렬해 floor((N-1)×p) 위치를 사용한다. 실패율은 실제 시도 중 실패 수다.
-- 종료 판정: 모든 socket state == state API, full ordered Replay == state, Operation ID 유일성, 예상 객체와 최종 x, Revision == 성공 수. 별도 [SQL 검증](../artifacts/portfolio/sql-verification.json)은 직접 MySQL state/events와 Replay, Outbox·audit 수를 비교한다.
+- 종료 판정: 모든 socket state == state API, full ordered Replay == state, Operation ID 유일성, 예상 객체와 최종 x, Revision == 성공 수. 별도 [SQL 검증](../artifacts/evidence/loads/sql-verification.json)은 직접 MySQL state/events와 Replay, Outbox·audit 수를 비교한다.
 
 ## 결과
 
@@ -30,15 +30,15 @@
 | 100명 단기 | 3,100 / 3,100 | 0% | 24.935 | 124.32 | 615.06 | 1,735.73 | 2,569.57 | PASS |
 | 20명·5분·1Hz | 6,000 / 6,000 | 0% | 300.001 | 20.00 | 69.99 | 169.16 | 269.08 | PASS |
 
-원본: [20명](../artifacts/portfolio/burst-final-20.json) · [50명](../artifacts/portfolio/burst-final-50.json) · [100명](../artifacts/portfolio/burst-final-100.json) · [5분 지속](../artifacts/portfolio/soak-20-5m.json).
+원본: [20명](../artifacts/evidence/loads/burst-final-20.json) · [50명](../artifacts/evidence/loads/burst-final-50.json) · [100명](../artifacts/evidence/loads/burst-final-100.json) · [5분 지속](../artifacts/evidence/loads/soak-20-5m.json).
 
-동일 도구의 앞선 반복에서는 20/50/100명 처리량이 174.22/135.12/104.53 edits/s, p95는 171.83/714.19/2,201.21ms였다. [반복 20](../artifacts/portfolio/burst-20.json) · [반복 50](../artifacts/portfolio/burst-50.json) · [반복 100](../artifacts/portfolio/burst-100.json). 이 실행 중 호스트에서 공개 파일 패턴 검사도 수행했다. 최종 반복은 그 검사가 끝난 뒤 실행했다. 부하 측정 중에는 브라우저 suite·서비스 재시작·다른 부하를 실행하지 않았다.
+동일 도구의 앞선 반복에서는 20/50/100명 처리량이 174.22/135.12/104.53 edits/s, p95는 171.83/714.19/2,201.21ms였다. [반복 20](https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/portfolio/burst-20.json) · [반복 50](https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/portfolio/burst-50.json) · [반복 100](https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/portfolio/burst-100.json). 이 실행 중 호스트에서 공개 파일 패턴 검사도 수행했다. 최종 반복은 그 검사가 끝난 뒤 실행했다. 부하 측정 중에는 브라우저 suite·서비스 재시작·다른 부하를 실행하지 않았다.
 
-기존 cmd/load로 실행한 [초기 20/50/100 표본](../artifacts/portfolio/burst-original.json)도 보존한다. 이 도구는 편집 중 ACK와 함께 메시지를 읽지만 종료 후 모든 socket 수렴은 확인하지 않는다. 실패 시 미전송 잔여 요청까지 failed에 포함하는 기존 계산 경계도 있어, 주요 표는 실제 시도와 지속 수신을 구분하는 새 도구를 사용했다. 도구 변경에 따른 차이를 서버 성능 개선으로 주장하지 않는다. 최초 1/5/20 결과는 [이전 기록](../artifacts/load-results.json)이다.
+기존 cmd/load로 실행한 [초기 20/50/100 표본](https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/portfolio/burst-original.json)도 보존한다. 이 도구는 편집 중 ACK와 함께 메시지를 읽지만 종료 후 모든 socket 수렴은 확인하지 않는다. 실패 시 미전송 잔여 요청까지 failed에 포함하는 기존 계산 경계도 있어, 주요 표는 실제 시도와 지속 수신을 구분하는 새 도구를 사용했다. 도구 변경에 따른 차이를 서버 성능 개선으로 주장하지 않는다. 최초 1/5/20 결과는 [이전 기록](https://github.com/whxodus0121/syncframe/blob/678c58e0a0c9bce89390bbe836b4514b3d1198e4/artifacts/load-results.json)이다.
 
 ## 자원 관찰과 한계
 
-지속 부하 시작 직후부터 종료 약 50초 후까지 docker stats를 21회 기록했다(10:50:06~10:55:47 UTC). 각 샘플 수집 뒤 15초를 쉬었으며 명령 소요 시간을 포함한 실제 간격은 약 17초다. 부하 시작은 10:49:57 UTC다. [원본](../artifacts/portfolio/resources.json) · [요약](../artifacts/portfolio/resource-summary.json) · [종료 상태](../artifacts/portfolio/container-health.txt). docker stats의 CPU 100%는 대략 코어 하나 기준이며 VM 전체 100%와 다르다. 순간 피크를 모두 포착하는 계측은 아니다.
+지속 부하 시작 직후부터 종료 약 50초 후까지 docker stats를 21회 기록했다(10:50:06~10:55:47 UTC). 각 샘플 수집 뒤 15초를 쉬었으며 명령 소요 시간을 포함한 실제 간격은 약 17초다. 부하 시작은 10:49:57 UTC다. [원본](../artifacts/evidence/loads/resources.json) · [요약](../artifacts/evidence/loads/resource-summary.json) · [종료 상태](../artifacts/evidence/loads/container-health.txt). docker stats의 CPU 100%는 대략 코어 하나 기준이며 VM 전체 100%와 다르다. 순간 피크를 모두 포착하는 계측은 아니다.
 
 표본상 최대 CPU는 API 73.06%, API2 6.66%, MySQL 57.48%, Kafka 119.70%, Redis 3.52%다. 마지막 MySQL 메모리는 약 497.7 MiB / 512 MiB로 여유가 적었다. 측정 직후 OOMKilled=false, RestartCount=0을 확인했다. 50·100명의 5분 지속 부하는 수행하지 않았다. 이 결과로 메모리 누수 부재나 장기 안정성을 주장할 수 없다.
 
@@ -60,4 +60,4 @@ go run ./cmd/soak -users 20 -duration 5m -interval 1s -output artifacts/portfoli
 python scripts/verify-load-state.py artifacts/portfolio/repeat-20.json artifacts/portfolio/repeat-50.json artifacts/portfolio/repeat-100.json artifacts/portfolio/repeat-soak.json
 ```
 
-verify-load-state.py는 인수로 준 report를 검사하며 생략하면 문서의 burst-final-*.json과 soak-20-5m.json을 대상으로 한다. SQL 검사 결과 파일도 새 실험에서는 별도 복사해 이전 증거를 보존한다. 부하 도구는 사용자 100명, 지속 편집 구간 5분, 추정 90,000건 한도로 제한한다. 단기는 사용자당 생성 1회와 수정 최대 50회다. 시작 준비와 진행 중 ACK 대기·종료 검증 시간은 편집 구간 제한과 별도다.
+verify-load-state.py는 인수로 준 report를 검사하며 생략하면 문서의 burst-final-*.json과 soak-20-5m.json을 대상으로 한다. SQL 검사 결과 파일도 새 실험에서는 별도 복사해 이전 증거를 보존한다. 반복·초기 표본은 정리 전 커밋에서 조회하고, 현재 main에는 위 표의 최종 표본과 자원·SQL 근거만 둔다. 부하 도구는 사용자 100명, 지속 편집 구간 5분, 추정 90,000건 한도로 제한한다. 단기는 사용자당 생성 1회와 수정 최대 50회다. 시작 준비와 진행 중 ACK 대기·종료 검증 시간은 편집 구간 제한과 별도다.

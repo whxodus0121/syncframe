@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "localLinks": 80,
+  "localLinks": 83,
   "errors": [],
   "externalLinksNotCheckedByThisScript": [
     "http://localhost:8080",
@@ -323,6 +323,21 @@
     {
       "source": "docs/publication.md",
       "target": "../artifacts/portfolio/application-source-check.json",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "../artifacts/publication/security-audit.json",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "../artifacts/publication/file-inventory.json",
+      "exists": true
+    },
+    {
+      "source": "docs/publication.md",
+      "target": "../artifacts/publication/integrity.json",
       "exists": true
     },
     {

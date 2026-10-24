@@ -19,6 +19,8 @@ python scripts/check-doc-links.py
 
 원본 개발 브랜치까지 포함한 로컬 전체 검사와 실제 공개 ref 검사는 범위가 다르다. Push는 main 하나만 대상으로 한다. 원본 보존용 로컬 ref·bundle·백업을 함께 전송하는 --all 또는 --mirror를 사용하지 않는다.
 
+[공개 이력 검사 결과](../artifacts/publication/security-audit.json), [파일 크기 검사](../artifacts/publication/file-inventory.json), [코드·측정·영상 동일성](../artifacts/publication/integrity.json)에 공개 전 gate의 근거를 남긴다.
+
 [개인정보 치환 기록](../artifacts/publication/privacy-redactions.json)에는 변경 파일과 ZIP 항목을 남긴다. 로컬 경로와 개인 이메일만 가리고 assertion·타이밍·문서 상태는 유지한다. 원본은 Git에서 제외한 private 백업에 보관한다. 이미지·영상·주요 부하 결과 362개 파일은 치환 전후 SHA-256이 일치했다. 기존 실패 재현을 성공 결과로 덮어쓰지 않는다.
 
 ## 공개 가능한 설정과 권한

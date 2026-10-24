@@ -1,0 +1,229 @@
+
+Running 7 tests using 1 worker
+
+(node:3124) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 e2e\browser-qa.spec.ts:6:1 › existing-board share survives reopening in a new browser tab (13.9s)
+(node:22864) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 e2e\browser-qa.spec.ts:12:1 › three named sessions converge across two servers, concurrent edits, reconnect and restart (17.8s)
+  x  3 e2e\browser-qa.spec.ts:23:1 › time machine pause, all speeds, overlay and full replay preserve the changing live document (1.5m)
+(node:25696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  4 e2e\browser-qa.spec.ts:33:2 › desktop: new-user editing, zoomed drag, properties and history remain usable (14.0s)
+(node:9520) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  5 e2e\browser-qa.spec.ts:33:2 › tablet: new-user editing, zoomed drag, properties and history remain usable (13.3s)
+(node:14496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  6 e2e\browser-qa.spec.ts:33:2 › mobile: new-user editing, zoomed drag, properties and history remain usable (1.5m)
+(node:22016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 7 e2e\browser-qa.spec.ts:42:1 › invalid invite shows an actionable error and offline history stays read-only (2.5s)
+
+
+  1) e2e\browser-qa.spec.ts:6:1 › existing-board share survives reopening in a new browser tab ─────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('status').filter({ hasText: 'Invite link copied' })
+    Expected: visible
+    Timeout: 12000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('status').filter({ hasText: 'Invite link copied' }) with timeout 12000ms
+      - waiting for getByRole('status').filter({ hasText: 'Invite link copied' })
+
+
+       at qa\helpers.ts:31
+
+      29 | export async function events(p:Page):Promise<EditEvent[]>{return p.evaluate(async()=>{const id=location.pathname.split('/').at(-1);let all:any[]=[];for(;;){const r=await fetch(`/api/boards/${id}/events?after=${all.at(-1)?.revision||0}`);if(!r.ok)throw Error("Events API failed");const page=await r.json();all=all.concat(page);if(page.length<500)return all}})}
+      30 | export async function settled(p:Page){await expect(p.locator(".connection")).not.toContainText("pending");await expect.poll(async()=>Number((await p.getByTestId("revision").innerText()).replace("REV ",""))).toBe((await state(p)).revision)}
+    > 31 | export async function invite(p:Page,context:BrowserContext){await context.grantPermissions(["clipboard-read","clipboard-write"],{origin:new URL(p.url()).origin});await p.getByRole("button",{name:"Share board",exact:true}).click();await expect(p.getByRole("status").filter({hasText:"Invite link copied"})).toBeVisible();const link=await p.evaluate(()=>navigator.clipboard.readText());expect(link).toMatch(/\/board\/[^#]+#key=[a-f0-9]{64}$/);return link}
+         |                                                                                                                                                                                                                                                                                                                  ^
+      32 | export async function add(p:Page,kind:string,x:number,y:number){await p.getByRole("button",{name:kind,exact:true}).click();const before=(await state(p)).revision;await p.getByTestId("canvas").click({position:{x,y}});await expect.poll(async()=>(await state(p)).revision).toBe(before+1);await settled(p);const st=await state(p);return (await events(p)).at(-1)!.object.id}
+      33 | export async function snap(p:Page,info:TestInfo,label:string){const folder=path.resolve("../artifacts/browser-qa/screenshots",process.env.QA_RUN_ID||"latest");fs.mkdirSync(folder,{recursive:true});const file=path.join(folder,label+".png");await p.screenshot({path:file,fullPage:true,mask:[p.getByLabel("Invite link")]});await info.attach(label,{path:file,contentType:"image/png"})}
+      34 | export async function assertPersisted(p:Page){const st=await state(p);const es=await events(p);expect(es.map(e=>e.revision)).toEqual(Array.from({length:st.revision},(_,i)=>i+1));expect(new Set(es.map(e=>e.operation.id)).size).toBe(es.length);const replay:State={...st,revision:0,objects:{}};for(const e of es){replay.objects[e.object.id]=e.object;replay.revision=e.revision}expect(replay).toEqual(st);
+        at invite ([WORKSPACE]\web\e2e\qa\helpers.ts:31:306)
+        at [WORKSPACE]\web\e2e\browser-qa.spec.ts:8:202
+
+    attachment #1: existing-before-share (image/png) ───────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-existing-board--6698f-pening-in-a-new-browser-tab\attachments\existing-before-share-e64b8bba0c13ad294a7a721b41c554e71cae3a15.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-existing-board--6698f-pening-in-a-new-browser-tab\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-existing-board--6698f-pening-in-a-new-browser-tab\test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-existing-board--6698f-pening-in-a-new-browser-tab\error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-existing-board--6698f-pening-in-a-new-browser-tab\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-existing-board--6698f-pening-in-a-new-browser-tab\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) e2e\browser-qa.spec.ts:23:1 › time machine pause, all speeds, overlay and full replay preserve the changing live document 
+
+    Test timeout of 90000ms exceeded.
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-time-machine-pa-8df80--the-changing-live-document\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-time-machine-pa-8df80--the-changing-live-document\test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-time-machine-pa-8df80--the-changing-live-document\error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-time-machine-pa-8df80--the-changing-live-document\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-time-machine-pa-8df80--the-changing-live-document\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) e2e\browser-qa.spec.ts:33:2 › desktop: new-user editing, zoomed drag, properties and history remain usable 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('[data-object-id="05c783ac-26a5-4454-ade7-5345377d72dd"]')
+    Expected: "translate(120,170)"
+    Received: "translate(90,140)"
+    Timeout:  12000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('[data-object-id="05c783ac-26a5-4454-ade7-5345377d72dd"]') with timeout 12000ms
+      - waiting for locator('[data-object-id="05c783ac-26a5-4454-ade7-5345377d72dd"]')
+        27 × locator resolved to <g tabindex="0" role="button" class="canvas-object" data-testid="board-object" transform="translate(90,140)" aria-label="note: A readable idea on desktop" data-object-id="05c783ac-26a5-4454-ade7-5345377d72dd">…</g>
+           - unexpected value "translate(90,140)"
+
+
+      35 |   // A new user's first click must reach the canvas, including on a phone.
+      36 |   const objectId=await add(p,"Sticky note",90,140);const object=p.locator(`[data-object-id="${objectId}"]`);await expect(object).toBeVisible();await p.getByLabel("Object text").fill("A readable idea on "+size.name);await p.getByLabel("Object text").press("Tab");await expect(object).toContainText("A readable idea");await p.getByRole("button",{name:"Color #e4dcfc",exact:true}).click();await expect(object.locator("rect").first()).toHaveAttribute("fill","#e4dcfc");await snap(p,info,size.name+"-properties");
+    > 37 |   const box=await object.boundingBox();await p.mouse.move(box!.x+75,box!.y+45);await p.mouse.down();await p.mouse.move(box!.x+105,box!.y+75,{steps:6});await p.mouse.up();await expect(object).toHaveAttribute("transform","translate(120,170)");await p.getByLabel("Close properties").click();await p.getByRole("button",{name:"Zoom out",exact:true}).click();await p.getByRole("button",{name:"Zoom out",exact:true}).click();await expect(p.locator(".zoom")).toContainText("80%");const zoomBox=await object.boundingBox();await p.mouse.move(zoomBox!.x+50,zoomBox!.y+35);await p.mouse.down();await p.mouse.move(zoomBox!.x+90,zoomBox!.y+59,{steps:5});await p.mouse.up();await expect(object).toHaveAttribute("transform","translate(170,200)");await object.press("ArrowRight");await expect(object).toHaveAttribute("transform","translate(180,200)");await snap(p,info,size.name+"-edited");
+         |                                                                                                                                                                                                ^
+      38 |   await p.getByLabel("Close properties").click();await p.getByRole("button",{name:"History",exact:true}).first().click();await expect(p.getByRole("heading",{name:"Time machine"})).toBeVisible();await snap(p,info,size.name+"-history");await p.getByRole("button",{name:"Close history",exact:true}).click();const scan=await new AxeBuilder({page:p}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(scan.violations).toEqual([]);const durable=await assertPersisted(p);await p.reload();await live(p);expect(await state(p)).toEqual(durable);await p.locator(`[data-object-id="${objectId}"]`).press("Delete");await expect(p.getByTestId("board-object")).toHaveCount(0);await assertPersisted(p);await context.close();
+      39 |  });
+      40 | }
+        at [WORKSPACE]\web\e2e\browser-qa.spec.ts:37:192
+
+    attachment #1: desktop-home (image/png) ────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\attachments\desktop-home-eef6cc0221c5ea609643f48abf54bdb350810382.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: desktop-empty (image/png) ───────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\attachments\desktop-empty-e9b39543b4ffc1e90e634686df18cb158b330d6d.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: desktop-properties (image/png) ──────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\attachments\desktop-properties-020f7e55f4c3d139dab2e4f5b20fba49b2341268.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) e2e\browser-qa.spec.ts:33:2 › tablet: new-user editing, zoomed drag, properties and history remain usable 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('[data-object-id="797cc953-7052-4f53-bacf-7351a5b70fe3"]')
+    Expected: "translate(120,170)"
+    Received: "translate(90,140)"
+    Timeout:  12000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('[data-object-id="797cc953-7052-4f53-bacf-7351a5b70fe3"]') with timeout 12000ms
+      - waiting for locator('[data-object-id="797cc953-7052-4f53-bacf-7351a5b70fe3"]')
+        27 × locator resolved to <g tabindex="0" role="button" class="canvas-object" data-testid="board-object" transform="translate(90,140)" aria-label="note: A readable idea on tablet" data-object-id="797cc953-7052-4f53-bacf-7351a5b70fe3">…</g>
+           - unexpected value "translate(90,140)"
+
+
+      35 |   // A new user's first click must reach the canvas, including on a phone.
+      36 |   const objectId=await add(p,"Sticky note",90,140);const object=p.locator(`[data-object-id="${objectId}"]`);await expect(object).toBeVisible();await p.getByLabel("Object text").fill("A readable idea on "+size.name);await p.getByLabel("Object text").press("Tab");await expect(object).toContainText("A readable idea");await p.getByRole("button",{name:"Color #e4dcfc",exact:true}).click();await expect(object.locator("rect").first()).toHaveAttribute("fill","#e4dcfc");await snap(p,info,size.name+"-properties");
+    > 37 |   const box=await object.boundingBox();await p.mouse.move(box!.x+75,box!.y+45);await p.mouse.down();await p.mouse.move(box!.x+105,box!.y+75,{steps:6});await p.mouse.up();await expect(object).toHaveAttribute("transform","translate(120,170)");await p.getByLabel("Close properties").click();await p.getByRole("button",{name:"Zoom out",exact:true}).click();await p.getByRole("button",{name:"Zoom out",exact:true}).click();await expect(p.locator(".zoom")).toContainText("80%");const zoomBox=await object.boundingBox();await p.mouse.move(zoomBox!.x+50,zoomBox!.y+35);await p.mouse.down();await p.mouse.move(zoomBox!.x+90,zoomBox!.y+59,{steps:5});await p.mouse.up();await expect(object).toHaveAttribute("transform","translate(170,200)");await object.press("ArrowRight");await expect(object).toHaveAttribute("transform","translate(180,200)");await snap(p,info,size.name+"-edited");
+         |                                                                                                                                                                                                ^
+      38 |   await p.getByLabel("Close properties").click();await p.getByRole("button",{name:"History",exact:true}).first().click();await expect(p.getByRole("heading",{name:"Time machine"})).toBeVisible();await snap(p,info,size.name+"-history");await p.getByRole("button",{name:"Close history",exact:true}).click();const scan=await new AxeBuilder({page:p}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(scan.violations).toEqual([]);const durable=await assertPersisted(p);await p.reload();await live(p);expect(await state(p)).toEqual(durable);await p.locator(`[data-object-id="${objectId}"]`).press("Delete");await expect(p.getByTestId("board-object")).toHaveCount(0);await assertPersisted(p);await context.close();
+      39 |  });
+      40 | }
+        at [WORKSPACE]\web\e2e\browser-qa.spec.ts:37:192
+
+    attachment #1: tablet-home (image/png) ─────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\attachments\tablet-home-55d06855ab6c390155278c1769eee2501ceb9776.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: tablet-empty (image/png) ────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\attachments\tablet-empty-95ac0c2ea28ded62c77aa308b39b36574455f51c.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: tablet-properties (image/png) ───────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\attachments\tablet-properties-e12fae70e29b8ca93139d294a8ea376037d08b5d.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) e2e\browser-qa.spec.ts:33:2 › mobile: new-user editing, zoomed drag, properties and history remain usable 
+
+    Test timeout of 90000ms exceeded.
+
+    attachment #1: mobile-home (image/png) ─────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\attachments\mobile-home-4916135a15432989f46cc9a9fd0ce97539931ab7.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: mobile-empty (image/png) ────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\attachments\mobile-empty-4da839d84082709d3b717e6dd68f373e3a308aa2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\artifacts\browser-qa\runs\baseline\failures\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5 failed
+    e2e\browser-qa.spec.ts:6:1 › existing-board share survives reopening in a new browser tab ──────
+    e2e\browser-qa.spec.ts:23:1 › time machine pause, all speeds, overlay and full replay preserve the changing live document 
+    e2e\browser-qa.spec.ts:33:2 › desktop: new-user editing, zoomed drag, properties and history remain usable 
+    e2e\browser-qa.spec.ts:33:2 › tablet: new-user editing, zoomed drag, properties and history remain usable 
+    e2e\browser-qa.spec.ts:33:2 › mobile: new-user editing, zoomed drag, properties and history remain usable 
+  2 passed (4.1m)

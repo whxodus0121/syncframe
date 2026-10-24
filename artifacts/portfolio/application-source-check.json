@@ -1,0 +1,133 @@
+{
+  "baseline": "e629601",
+  "method": "Git blob identity including configured normalization; application source, deployment config and dependency locks",
+  "unchanged": true,
+  "files": [
+    {
+      "path": "Dockerfile",
+      "baselineBlob": "62f002de76ca0395dc8ce147fba4416b29c264af",
+      "currentBlob": "62f002de76ca0395dc8ce147fba4416b29c264af",
+      "unchanged": true
+    },
+    {
+      "path": "cmd/server/main.go",
+      "baselineBlob": "7aa766f09d2b02bd3c1f28901f67217a03058478",
+      "currentBlob": "7aa766f09d2b02bd3c1f28901f67217a03058478",
+      "unchanged": true
+    },
+    {
+      "path": "compose.yaml",
+      "baselineBlob": "dc1b407ee413d7d8cee96d6be321601e455c2084",
+      "currentBlob": "dc1b407ee413d7d8cee96d6be321601e455c2084",
+      "unchanged": true
+    },
+    {
+      "path": "go.mod",
+      "baselineBlob": "34eb9bfb8b67bfabc7462068760fe344a014f7d7",
+      "currentBlob": "34eb9bfb8b67bfabc7462068760fe344a014f7d7",
+      "unchanged": true
+    },
+    {
+      "path": "go.sum",
+      "baselineBlob": "fe361a0eda99689efb1e3c4b7f5b105533c95357",
+      "currentBlob": "fe361a0eda99689efb1e3c4b7f5b105533c95357",
+      "unchanged": true
+    },
+    {
+      "path": "internal/httpapi/server.go",
+      "baselineBlob": "f3385968ee7d01b22f7f5feadb12375aeada3b2d",
+      "currentBlob": "f3385968ee7d01b22f7f5feadb12375aeada3b2d",
+      "unchanged": true
+    },
+    {
+      "path": "internal/httpapi/server_integration_test.go",
+      "baselineBlob": "920906c003e6826909bcde03189894b26a460c55",
+      "currentBlob": "920906c003e6826909bcde03189894b26a460c55",
+      "unchanged": true
+    },
+    {
+      "path": "internal/model/model.go",
+      "baselineBlob": "a8f95eb65b3d3851d44333907ce8a70cc5d28b41",
+      "currentBlob": "a8f95eb65b3d3851d44333907ce8a70cc5d28b41",
+      "unchanged": true
+    },
+    {
+      "path": "internal/model/model_test.go",
+      "baselineBlob": "8705f2d09466db61946d6a6ba5bdf61c28c59122",
+      "currentBlob": "8705f2d09466db61946d6a6ba5bdf61c28c59122",
+      "unchanged": true
+    },
+    {
+      "path": "internal/pipeline/pipeline.go",
+      "baselineBlob": "f87fa5cf619a723f952a6989b71187a47320c5d7",
+      "currentBlob": "f87fa5cf619a723f952a6989b71187a47320c5d7",
+      "unchanged": true
+    },
+    {
+      "path": "internal/realtime/bus.go",
+      "baselineBlob": "bd392789556969b902dbdd7b4ee807a42ed7b032",
+      "currentBlob": "bd392789556969b902dbdd7b4ee807a42ed7b032",
+      "unchanged": true
+    },
+    {
+      "path": "internal/store/schema.sql",
+      "baselineBlob": "ddbf7fbc9bc5dad29f493ea19ad618abcaea060d",
+      "currentBlob": "ddbf7fbc9bc5dad29f493ea19ad618abcaea060d",
+      "unchanged": true
+    },
+    {
+      "path": "internal/store/store.go",
+      "baselineBlob": "65c4a775d2c0e5673db75d6c109ca5d815fe97f5",
+      "currentBlob": "65c4a775d2c0e5673db75d6c109ca5d815fe97f5",
+      "unchanged": true
+    },
+    {
+      "path": "internal/store/store_integration_test.go",
+      "baselineBlob": "6549d0bb5ad1274f21386731d11c440edfefa9cc",
+      "currentBlob": "6549d0bb5ad1274f21386731d11c440edfefa9cc",
+      "unchanged": true
+    },
+    {
+      "path": "web/package-lock.json",
+      "baselineBlob": "a6267cec2cc803df4b78a3468976015a0b644e89",
+      "currentBlob": "a6267cec2cc803df4b78a3468976015a0b644e89",
+      "unchanged": true
+    },
+    {
+      "path": "web/package.json",
+      "baselineBlob": "64104fa8d4aff1238d5e18beb20fdd1240b6b800",
+      "currentBlob": "64104fa8d4aff1238d5e18beb20fdd1240b6b800",
+      "unchanged": true
+    },
+    {
+      "path": "web/src/main.tsx",
+      "baselineBlob": "dcfafd483642346f58591eb046cef0a818c2ccd3",
+      "currentBlob": "dcfafd483642346f58591eb046cef0a818c2ccd3",
+      "unchanged": true
+    },
+    {
+      "path": "web/src/model.test.ts",
+      "baselineBlob": "a3fff9004671cd8bc3e5062e78deeaf3d37dee91",
+      "currentBlob": "a3fff9004671cd8bc3e5062e78deeaf3d37dee91",
+      "unchanged": true
+    },
+    {
+      "path": "web/src/model.ts",
+      "baselineBlob": "4d99a7603ed5895b9d59ac9975d265dcc12b1a9c",
+      "currentBlob": "4d99a7603ed5895b9d59ac9975d265dcc12b1a9c",
+      "unchanged": true
+    },
+    {
+      "path": "web/src/style.css",
+      "baselineBlob": "c3e4c3d85b06302ad66addc405f08890dee6a677",
+      "currentBlob": "c3e4c3d85b06302ad66addc405f08890dee6a677",
+      "unchanged": true
+    },
+    {
+      "path": "web/src/useBoard.ts",
+      "baselineBlob": "337fe0b4b29624b0d9949f756a242d56bf261c4f",
+      "currentBlob": "337fe0b4b29624b0d9949f756a242d56bf261c4f",
+      "unchanged": true
+    }
+  ]
+}

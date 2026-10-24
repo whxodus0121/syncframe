@@ -1,0 +1,165 @@
+ Image syncframe-api Building 
+ Image syncframe-api2 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 947B 0.0s done
+#1 DONE 0.0s
+
+#2 [api internal] load build definition from Dockerfile
+#2 transferring dockerfile: 587B done
+#2 DONE 0.0s
+
+#3 [api internal] load metadata for docker.io/library/alpine:3.23
+#3 DONE 1.0s
+
+#4 [api internal] load metadata for docker.io/library/node:24-alpine
+#4 DONE 1.0s
+
+#5 [api2 internal] load metadata for docker.io/library/golang:1.26.10-alpine
+#5 DONE 1.4s
+
+#6 [api2 internal] load .dockerignore
+#6 transferring context: 135B done
+#6 DONE 0.0s
+
+#7 [api web 1/6] FROM docker.io/library/node:24-alpine@sha256:06d7adf3e0ef61a13f1d28682726366f97a15aa1888c934d3ecec86c33918b53
+#7 resolve docker.io/library/node:24-alpine@sha256:06d7adf3e0ef61a13f1d28682726366f97a15aa1888c934d3ecec86c33918b53 0.0s done
+#7 DONE 0.0s
+
+#8 [api backend 1/7] FROM docker.io/library/golang:1.26.10-alpine@sha256:27f2d3b83cfc5803c8078f8e730af0f7c431bf067afaec8f60a36fb763187cba
+#8 resolve docker.io/library/golang:1.26.10-alpine@sha256:27f2d3b83cfc5803c8078f8e730af0f7c431bf067afaec8f60a36fb763187cba 0.0s done
+#8 DONE 0.0s
+
+#9 [api stage-2 1/5] FROM docker.io/library/alpine:3.23@sha256:ff7f0c727dd796aa36787bfcd9a64bf35a6ce72a73451b3359fde849b6703d63
+#9 resolve docker.io/library/alpine:3.23@sha256:ff7f0c727dd796aa36787bfcd9a64bf35a6ce72a73451b3359fde849b6703d63 0.0s done
+#9 DONE 0.0s
+
+#10 [api internal] load build context
+#10 transferring context: 66.07kB 0.0s done
+#10 DONE 0.0s
+
+#11 [api web 2/6] WORKDIR /src/web
+#11 CACHED
+
+#12 [api web 3/6] COPY web/package*.json ./
+#12 DONE 0.0s
+
+#13 [api2 web 4/6] RUN npm ci
+#13 4.786 
+#13 4.786 added 46 packages, and audited 47 packages in 5s
+#13 4.786 
+#13 4.786 10 packages are looking for funding
+#13 4.786   run `npm fund` for details
+#13 4.788 
+#13 4.788 found 0 vulnerabilities
+#13 4.791 npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+#13 4.791 npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)
+#13 4.791 npm warn install-scripts
+#13 4.791 npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+#13 4.794 npm notice
+#13 4.794 npm notice New major version of npm available! 11.19.1 -> 12.2.1
+#13 4.794 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+#13 4.794 npm notice To update run: npm install -g npm@12.2.1
+#13 4.794 npm notice
+#13 DONE 5.6s
+
+#14 [api web 5/6] COPY web/ ./
+#14 DONE 0.1s
+
+#15 [api web 6/6] RUN npm run build
+#15 0.377 
+#15 0.377 > syncframe-web@1.0.0 build
+#15 0.377 > tsc -b && vite build
+#15 0.377 
+#15 3.056 vite v7.3.7 building client environment for production...
+#15 3.148 transforming...
+#15 6.366 ✓ 1580 modules transformed.
+#15 6.532 rendering chunks...
+#15 6.543 computing gzip size...
+#15 6.554 dist/index.html                   0.57 kB │ gzip:  0.38 kB
+#15 6.554 dist/assets/index-Du2r2o1w.css   21.85 kB │ gzip:  5.29 kB
+#15 6.554 dist/assets/index-CNFuBF-s.js   258.50 kB │ gzip: 81.33 kB
+#15 6.555 ✓ built in 3.46s
+#15 DONE 6.6s
+
+#16 [api backend 2/7] WORKDIR /src
+#16 CACHED
+
+#17 [api backend 4/7] RUN go mod download
+#17 CACHED
+
+#18 [api backend 6/7] COPY internal/ internal/
+#18 CACHED
+
+#19 [api stage-2 3/5] WORKDIR /app
+#19 CACHED
+
+#20 [api backend 5/7] COPY cmd/ cmd/
+#20 CACHED
+
+#21 [api stage-2 2/5] RUN apk add --no-cache ca-certificates && addgroup -S app && adduser -S app -G app
+#21 CACHED
+
+#22 [api backend 3/7] COPY go.mod go.sum ./
+#22 CACHED
+
+#23 [api backend 7/7] RUN CGO_ENABLED=0 go build -trimpath -o /server ./cmd/server
+#23 CACHED
+
+#24 [api stage-2 4/5] COPY --from=backend /server /app/server
+#24 CACHED
+
+#25 [api stage-2 5/5] COPY --from=web /src/web/dist /app/web
+#25 DONE 0.0s
+
+#26 [api2] exporting to image
+#26 exporting layers 0.1s done
+#26 exporting manifest sha256:678326ab8031e51550f6612ee85a4d7ca922cab47fd3ce8908c4ce32782fc6f8 0.0s done
+#26 exporting config sha256:161b38cf8aff34c1d7cfbf89677889405b577d29a44c2acd79bb04d06628b455 0.0s done
+#26 exporting attestation manifest sha256:dd6789490d5c0627e10203785e6e5bd4652a164989bfbcc5d3858cada20d6f4b 0.0s done
+#26 exporting manifest list sha256:099d05d6faa7c81b8fe969df7bbe9a0b96be0d24a328b76dd4bc342ecc06e27d 0.0s done
+#26 naming to docker.io/library/syncframe-api2:latest done
+#26 unpacking to docker.io/library/syncframe-api2:latest 0.0s done
+#26 DONE 0.2s
+
+#27 [api] exporting to image
+#27 exporting layers 0.1s done
+#27 exporting manifest sha256:de5a7a5bd074ec324c60ae74f070f6a9dc5c442b98a94a62070692a2c2f9018d 0.0s done
+#27 exporting config sha256:8e16903383c67fa16fddf2f39099849ba7b9573f8f31a7ae623ffbef36acfcfa 0.0s done
+#27 exporting attestation manifest sha256:b605c4daf39c8242cf41b6ffb602c783bc3ecf8973fe029120b719da5ccbe557 0.0s done
+#27 exporting manifest list sha256:046afef11ce372bc60dd7b751d5a576906647c7974270db2ed2d1f68566f9c5f 0.0s done
+#27 naming to docker.io/library/syncframe-api:latest done
+#27 unpacking to docker.io/library/syncframe-api:latest 0.0s done
+#27 DONE 0.2s
+
+#28 [api2] resolving provenance for metadata file
+#28 DONE 0.0s
+
+#29 [api] resolving provenance for metadata file
+#29 DONE 0.0s
+ Image syncframe-api Built 
+ Image syncframe-api2 Built 
+ Container syncframe-redis-1 Running 
+ Container syncframe-mysql-1 Running 
+ Container syncframe-kafka-1 Running 
+ Container syncframe-api2-1 Recreate 
+ Container syncframe-api-1 Recreate 
+ Container syncframe-api-1 Recreated 
+ Container syncframe-api2-1 Recreated 
+ Container syncframe-mysql-1 Waiting 
+ Container syncframe-mysql-1 Waiting 
+ Container syncframe-mysql-1 Healthy 
+ Container syncframe-mysql-1 Healthy 
+ Container syncframe-api2-1 Starting 
+ Container syncframe-api-1 Starting 
+ Container syncframe-api-1 Started 
+ Container syncframe-api2-1 Started 
+ Container syncframe-api2-1 Waiting 
+ Container syncframe-mysql-1 Waiting 
+ Container syncframe-redis-1 Waiting 
+ Container syncframe-kafka-1 Waiting 
+ Container syncframe-api-1 Waiting 
+ Container syncframe-kafka-1 Healthy 
+ Container syncframe-mysql-1 Healthy 
+ Container syncframe-redis-1 Healthy 
+ Container syncframe-api2-1 Healthy 
+ Container syncframe-api-1 Healthy 

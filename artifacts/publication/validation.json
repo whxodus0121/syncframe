@@ -1,0 +1,23 @@
+{
+  "status": "PASS within tested scope",
+  "goTests": 9,
+  "frontendTests": 5,
+  "chromium": {
+    "startTime": "2026-10-24T12:03:32.262Z",
+    "duration": 65766.99100000001,
+    "expected": 13,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "infrastructureSeconds": 70.8,
+  "unexpectedBrowserErrors": 0,
+  "expectedBrowserDiagnostics": 6,
+  "sourceChanges": "none; publication scripts, documentation and redacted evidence only",
+  "sourceBaseline": "61b7011",
+  "loads": "existing 20/50/100 burst and 20-user five-minute samples retained; not rerun",
+  "performanceAndMediaFilesByteIdentical": 362,
+  "regressionEvidence": "artifacts/browser-qa/runs/publication-final-20261024/",
+  "log": "artifacts/publication/verification.txt",
+  "licenseAdded": false
+}

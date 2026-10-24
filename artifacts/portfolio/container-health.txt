@@ -1,0 +1,5 @@
+/syncframe-api-1 OOMKilled=false RestartCount=0
+/syncframe-api2-1 OOMKilled=false RestartCount=0
+/syncframe-mysql-1 OOMKilled=false RestartCount=0
+/syncframe-kafka-1 OOMKilled=false RestartCount=0
+/syncframe-redis-1 OOMKilled=false RestartCount=0

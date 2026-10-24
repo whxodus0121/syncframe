@@ -1,0 +1,789 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "[WORKSPACE]\\web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "browser-qa.config.ts"
+    ],
+    "configFile": "[WORKSPACE]\\web\\browser-qa.config.ts",
+    "rootDir": "[WORKSPACE]/web/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "[WORKSPACE]/artifacts/browser-qa/runs/repair-2/failures",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "[WORKSPACE]/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "[WORKSPACE]\\web\\e2e",
+        "snapshotDir": "[WORKSPACE]\\web\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8080",
+          "viewport": {
+            "width": 1440,
+            "height": 960
+          },
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "actionTimeout": 15000,
+          "navigationTimeout": 20000,
+          "video": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../artifacts/browser-qa/runs/repair-2/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "accessibility.spec.ts",
+      "file": "accessibility.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "landing and canvas meet automated WCAG A/AA checks",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2257,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:11:13.172Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ddd864604af8a6a0198f-8a4dc28a6bb1be61ee9f",
+          "file": "accessibility.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "browser-qa.spec.ts",
+      "file": "browser-qa.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "existing-board share survives reopening in a new browser tab",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2042,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:11:15.590Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "existing-before-share",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-existing-board--6698f-pening-in-a-new-browser-tab\\attachments\\existing-before-share-3f83dde7f8d037736fb99eac468a8e03064cf3f8.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-1fc73d2951d8b65f43c9",
+          "file": "browser-qa.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "three named sessions converge across two servers, concurrent edits, reconnect and restart",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17661,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:11:17.647Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "offline-pending",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-three-named-ses-86d9f-edits-reconnect-and-restart\\attachments\\offline-pending-b261117030422e3df950dc15a5e164c0bfd66acb.png"
+                    },
+                    {
+                      "name": "three-session-recovery",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-three-named-ses-86d9f-edits-reconnect-and-restart\\attachments\\three-session-recovery-923855534e9ab6cc91dbdbcaf89246066e296e4d.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJraW5kIjogIm5ldHdvcmsiLAogICAgIm1lc3NhZ2UiOiAiaHR0cDovL2xvY2FsaG9zdDo4MDgxL2FwaS9ib2FyZHMvOWI3N2E0YTQyMDJlN2QzNjg0MjkyYmE4MTdhNzQyYzQvZXZlbnRzP2FmdGVyPTAgbmV0OjpFUlJfSU5URVJORVRfRElTQ09OTkVDVEVEIiwKICAgICJleHBlY3RlZCI6IHRydWUKICB9LAogIHsKICAgICJraW5kIjogImNvbnNvbGUiLAogICAgIm1lc3NhZ2UiOiAiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IG5ldDo6RVJSX0lOVEVSTkVUX0RJU0NPTk5FQ1RFRCIsCiAgICAiZXhwZWN0ZWQiOiB0cnVlCiAgfQpd"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-a1969296403c03b9c616",
+          "file": "browser-qa.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "time machine pause, all speeds, overlay and full replay preserve the changing live document",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4948,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:11:35.321Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "history-overlay",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-time-machine-pa-8df80--the-changing-live-document\\attachments\\history-overlay-f69f905f2eee745d399ac2bf2a6a10f775ba86c1.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-334210339a7e7a383416",
+          "file": "browser-qa.spec.ts",
+          "line": 165,
+          "column": 1
+        },
+        {
+          "title": "desktop: new-user editing, zoomed drag, properties and history remain usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4118,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:11:40.281Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "desktop-home",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\\attachments\\desktop-home-fa4e45c43a71a2465f853935f3d47702b629257e.png"
+                    },
+                    {
+                      "name": "desktop-empty",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\\attachments\\desktop-empty-59e1b9daf3ff3539e3a7b35f721bc8c24dcc8e2a.png"
+                    },
+                    {
+                      "name": "desktop-properties",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\\attachments\\desktop-properties-88b43c0ba983dda337659aab0b134bec8ba3a4b4.png"
+                    },
+                    {
+                      "name": "desktop-edited",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\\attachments\\desktop-edited-65e0b363df96a9c050b79dac285f976ff382e66e.png"
+                    },
+                    {
+                      "name": "desktop-history",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\\attachments\\desktop-history-809592634a15b4825d57118ca9418bac7a22203d.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-5802b279bc60c2281d97",
+          "file": "browser-qa.spec.ts",
+          "line": 249,
+          "column": 3
+        },
+        {
+          "title": "tablet: new-user editing, zoomed drag, properties and history remain usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3725,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:11:44.410Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "tablet-home",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\\attachments\\tablet-home-2c51c7d9e628e1b4ff5bc1ada13a56878c64c203.png"
+                    },
+                    {
+                      "name": "tablet-empty",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\\attachments\\tablet-empty-a4f6de1253c17d8d12a445e132ef662c9cb334e6.png"
+                    },
+                    {
+                      "name": "tablet-properties",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\\attachments\\tablet-properties-38090f284968c4c3269e4f198883401cddd99ff2.png"
+                    },
+                    {
+                      "name": "tablet-edited",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\\attachments\\tablet-edited-af26b0d5d3dac4b6089c473164f15cb13030ebbb.png"
+                    },
+                    {
+                      "name": "tablet-history",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\\attachments\\tablet-history-a98999276529aa85cbaf2650e052c3e8c2b5ca23.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-d38cfeb4d82d08b858ec",
+          "file": "browser-qa.spec.ts",
+          "line": 249,
+          "column": 3
+        },
+        {
+          "title": "mobile: new-user editing, zoomed drag, properties and history remain usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3232,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:11:48.150Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "mobile-home",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\\attachments\\mobile-home-e07eb91ea5117f08cf11dc15db8b460d3fa04f0f.png"
+                    },
+                    {
+                      "name": "mobile-empty",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\\attachments\\mobile-empty-3dc44abf43fec452ec0d565c8e213e4b1079fdbc.png"
+                    },
+                    {
+                      "name": "mobile-properties",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\\attachments\\mobile-properties-6a1fc621b9345638dd40b29109340fbd94897479.png"
+                    },
+                    {
+                      "name": "mobile-edited",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\\attachments\\mobile-edited-866833174532bd989129647a96b9ec18363b28d8.png"
+                    },
+                    {
+                      "name": "mobile-history",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\\attachments\\mobile-history-eeaa7f1ad91b79922191495b64e27fad59d36c7b.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-6a84f3e480a98e3bce56",
+          "file": "browser-qa.spec.ts",
+          "line": 249,
+          "column": 3
+        },
+        {
+          "title": "invalid invite shows an actionable error and offline history stays read-only",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 632,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:11:51.395Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "unauthorized-error",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-invalid-invite--7e3a4-ine-history-stays-read-only\\attachments\\unauthorized-error-0bae337639cd48785fd729da13f2c91456dcfe26.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJraW5kIjogImh0dHAiLAogICAgIm1lc3NhZ2UiOiAiNDAxIGh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hcGkvYm9hcmRzL3FhLW5vdC1hdXRob3JpemVkIiwKICAgICJleHBlY3RlZCI6IHRydWUKICB9LAogIHsKICAgICJraW5kIjogImNvbnNvbGUiLAogICAgIm1lc3NhZ2UiOiAiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IHRoZSBzZXJ2ZXIgcmVzcG9uZGVkIHdpdGggYSBzdGF0dXMgb2YgNDAxIChVbmF1dGhvcml6ZWQpIiwKICAgICJleHBlY3RlZCI6IHRydWUKICB9Cl0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-fa845d2967e79dfbdf75",
+          "file": "browser-qa.spec.ts",
+          "line": 343,
+          "column": 1
+        },
+        {
+          "title": "unsubmitted text and dimension drafts survive another user's committed patch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5561,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:11:52.037Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "local-draft-during-remote-change",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-unsubmitted-tex-ebda5-ther-user-s-committed-patch\\attachments\\local-draft-during-remote-change-be572196047518955dce2315121763d6e104641a.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-36691d60fe2e735fe7d0",
+          "file": "browser-qa.spec.ts",
+          "line": 364,
+          "column": 1
+        },
+        {
+          "title": "a delayed real history response shows loading rather than the live document",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1258,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:11:57.610Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "history-response-in-flight",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-a-delayed-real--ea51b-ther-than-the-live-document\\attachments\\history-response-in-flight-2b64125b2d0d329340d8918f8973c4edde32679e.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-67d77d95094152f73e41",
+          "file": "browser-qa.spec.ts",
+          "line": 414,
+          "column": 1
+        },
+        {
+          "title": "initial board loading is visible while a real state response is delayed",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 93923,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "[WORKSPACE]\\web\\e2e\\qa\\helpers.ts",
+                        "column": 12,
+                        "line": 96
+                      },
+                      "message": "Error: page.evaluate: Test timeout of 90000ms exceeded.\n\n   at qa\\helpers.ts:96\n\n  94 | }\n  95 | export async function state(p: Page): Promise<State> {\n> 96 |   return p.evaluate(async () => {\n     |            ^\n  97 |     const id = location.pathname.split(\"/\").at(-1);\n  98 |     const response = await fetch(`/api/boards/${id}`);\n  99 |     if (!response.ok) throw Error(\"State API failed: \" + response.status);\n    at state ([WORKSPACE]\\web\\e2e\\qa\\helpers.ts:96:12)\n    at assertPersisted ([WORKSPACE]\\web\\e2e\\qa\\helpers.ts:162:20)\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:481:9"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:11:58.879Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "initial-loading",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-initial-board-l-90c58-l-state-response-is-delayed\\attachments\\initial-loading-bac7834076f7453de74122637003a3112f4f7731.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-initial-board-l-90c58-l-state-response-is-delayed\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-initial-board-l-90c58-l-state-response-is-delayed\\video.webm"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-initial-board-l-90c58-l-state-response-is-delayed\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repair-2\\failures\\browser-qa-initial-board-l-90c58-l-state-response-is-delayed\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-8bbf227bcbc1d22ac2d3",
+          "file": "browser-qa.spec.ts",
+          "line": 450,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "collaboration.spec.ts",
+      "file": "collaboration.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "two browser contexts edit, resize, recolor, recover offline edits and replay history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9936,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:13:33.744Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "960cd46fcfcce4c1b118-663bad48766960024eac",
+          "file": "collaboration.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "landing page and starter board are functional at desktop and phone sizes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1298,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:13:43.801Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "960cd46fcfcce4c1b118-dc86bfb025f93e94b6e5",
+          "file": "collaboration.spec.ts",
+          "line": 144,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-24T10:11:12.331Z",
+    "duration": 152916.551,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

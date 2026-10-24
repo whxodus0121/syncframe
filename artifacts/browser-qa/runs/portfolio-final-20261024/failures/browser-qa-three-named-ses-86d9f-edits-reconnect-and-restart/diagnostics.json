@@ -1,0 +1,12 @@
+[
+  {
+    "kind": "network",
+    "message": "http://localhost:8081/api/boards/c5e7840e23736bbb0ca3af2d8dac0bcd/events?after=0 net::ERR_INTERNET_DISCONNECTED",
+    "expected": true
+  },
+  {
+    "kind": "console",
+    "message": "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
+    "expected": true
+  }
+]

@@ -1,0 +1,177 @@
+{
+  "recordedAt": "2026-10-24T08:08:15.2127796Z",
+  "os": "Microsoft Windows NT 10.0.19045.0",
+  "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+  "go": "go version go1.26.10 windows/amd64",
+  "node": "v24.19.0",
+  "npm": "11.17.0",
+  "docker": {
+    "Platform": {
+      "Name": "Docker Desktop 4.60.1 (218372)"
+    },
+    "Version": "29.2.0",
+    "ApiVersion": "1.53",
+    "MinAPIVersion": "1.44",
+    "Os": "linux",
+    "Arch": "amd64",
+    "Components": [
+      {
+        "Name": "Engine",
+        "Version": "29.2.0",
+        "Details": {
+          "ApiVersion": "1.53",
+          "Arch": "amd64",
+          "BuildTime": "Mon Jan 26 19:26:07 2026",
+          "Experimental": "false",
+          "GitCommit": "9c62384",
+          "GoVersion": "go1.25.6",
+          "KernelVersion": "6.18.54.1-microsoft-standard-WSL2",
+          "MinAPIVersion": "1.44",
+          "Os": "linux"
+        }
+      },
+      {
+        "Name": "containerd",
+        "Version": "v2.2.1",
+        "Details": {
+          "GitCommit": "dea7da592f5d1d2b7755e3a161be07f43fad8f75"
+        }
+      },
+      {
+        "Name": "runc",
+        "Version": "1.3.4",
+        "Details": {
+          "GitCommit": "v1.3.4-0-gd6d73eb8"
+        }
+      },
+      {
+        "Name": "docker-init",
+        "Version": "0.19.0",
+        "Details": {
+          "GitCommit": "de40ad0"
+        }
+      }
+    ],
+    "GitCommit": "9c62384",
+    "GoVersion": "go1.25.6",
+    "KernelVersion": "6.18.54.1-microsoft-standard-WSL2",
+    "BuildTime": "2026-01-26T19:26:07.000000000+00:00"
+  },
+  "compose": "Docker Compose version v5.0.2",
+  "dockerResources": {
+    "NCPU": 12,
+    "MemTotal": 8259420160,
+    "OperatingSystem": "Docker Desktop (containerized)",
+    "Architecture": "x86_64"
+  },
+  "images": [
+    {
+      "ID": "sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a",
+      "ContainerName": "syncframe-mysql-1",
+      "Repository": "mysql",
+      "Tag": "8.4",
+      "Platform": "linux/amd64",
+      "Size": 238999068,
+      "Created": "2026-09-12T00:10:55.375319519Z",
+      "LastTagTime": "2026-09-19T12:51:55.977875666Z"
+    },
+    {
+      "ID": "sha256:9a129e03121d46d74349a480f8f17082df3dd411b28281c9eabb95cf096370b9",
+      "ContainerName": "syncframe-kafka-1",
+      "Repository": "apache/kafka",
+      "Tag": "4.0.1",
+      "Platform": "linux/amd64",
+      "Size": 221079876,
+      "Created": "2025-09-09T14:57:13.83709444Z",
+      "LastTagTime": "2026-10-24T07:35:47.004650816Z"
+    },
+    {
+      "ID": "sha256:520775a41a63e77e06c73e35d2fd9cc15921a609516818796b4ecbb813078bc7",
+      "ContainerName": "syncframe-redis-1",
+      "Repository": "redis",
+      "Tag": "7.4-alpine",
+      "Platform": "linux/amd64",
+      "Size": 16260342,
+      "Created": "2026-09-17T21:32:46.989770417Z",
+      "LastTagTime": "2026-09-19T12:28:42.169082359Z"
+    },
+    {
+      "ID": "sha256:d91a9f081097db146d5eecbce85ebafe9bead9df895129f77c5a350c94113bd3",
+      "ContainerName": "syncframe-api2-1",
+      "Repository": "syncframe-api2",
+      "Tag": "latest",
+      "Platform": "linux/amd64",
+      "Size": 12587527,
+      "Created": "2026-10-24T08:04:46.562361267Z",
+      "LastTagTime": "2026-10-24T08:04:47.319905646Z"
+    },
+    {
+      "ID": "sha256:82828f9c128f0b21d2188c45f1eeb266cbca4c92596ea5a1b90041ada43bb18e",
+      "ContainerName": "syncframe-api-1",
+      "Repository": "syncframe-api",
+      "Tag": "latest",
+      "Platform": "linux/amd64",
+      "Size": 12587526,
+      "Created": "2026-10-24T08:04:46.562361267Z",
+      "LastTagTime": "2026-10-24T08:04:47.321242059Z"
+    },
+    null
+  ],
+  "containers": [
+    {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "2.34%",
+      "Container": "a421f4e5d15c938bbc6e989041f3bdd055d3e13cfce2cc4a29245e7974423f6e",
+      "ID": "a421f4e5d15c",
+      "MemPerc": "4.56%",
+      "MemUsage": "8.762MiB / 192MiB",
+      "Name": "syncframe-api2-1",
+      "NetIO": "1.05MB / 920kB",
+      "PIDs": "14"
+    },
+    {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "0.13%",
+      "Container": "c3d744e99c523851ab972ce6f2898addc7207db90d15c3a5a5d6d228863b0b00",
+      "ID": "c3d744e99c52",
+      "MemPerc": "6.74%",
+      "MemUsage": "12.95MiB / 192MiB",
+      "Name": "syncframe-api-1",
+      "NetIO": "15.5MB / 15.9MB",
+      "PIDs": "18"
+    },
+    {
+      "BlockIO": "28.7kB / 0B",
+      "CPUPerc": "0.44%",
+      "Container": "3aacc9c7bb88f008ec3d77f67f31836066aec610e1b571f640d14120776a1484",
+      "ID": "3aacc9c7bb88",
+      "MemPerc": "4.91%",
+      "MemUsage": "4.711MiB / 96MiB",
+      "Name": "syncframe-redis-1",
+      "NetIO": "338kB / 398kB",
+      "PIDs": "6"
+    },
+    {
+      "BlockIO": "11.1MB / 1.76MB",
+      "CPUPerc": "1.53%",
+      "Container": "de0ce49c53b8e9cd07fbd3519f85839b016fb4b3e9f518d3e226c313249e74bf",
+      "ID": "de0ce49c53b8",
+      "MemPerc": "55.47%",
+      "MemUsage": "355MiB / 640MiB",
+      "Name": "syncframe-kafka-1",
+      "NetIO": "1.06MB / 1.07MB",
+      "PIDs": "101"
+    },
+    {
+      "BlockIO": "86.6MB / 519MB",
+      "CPUPerc": "5.55%",
+      "Container": "58b27e502392d21981127dee4faa025284a42c3e40cefc286a845e68850be117",
+      "ID": "58b27e502392",
+      "MemPerc": "98.02%",
+      "MemUsage": "501.9MiB / 512MiB",
+      "Name": "syncframe-mysql-1",
+      "NetIO": "9.44MB / 15.3MB",
+      "PIDs": "53"
+    }
+  ]
+}

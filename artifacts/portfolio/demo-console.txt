@@ -1,0 +1,8 @@
+
+Running 1 test using 1 worker
+
+(node:9144) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 demo\portfolio.spec.ts:16:1 › record collaboration, offline recovery and read-only replay (17.5s)
+
+  1 passed (18.2s)

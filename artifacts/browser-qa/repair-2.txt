@@ -1,0 +1,70 @@
+
+> syncframe-web@1.0.0 browser:qa
+> playwright test --config browser-qa.config.ts
+
+
+Running 13 tests using 1 worker
+
+(node:1556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 e2e\accessibility.spec.ts:3:1 › landing and canvas meet automated WCAG A/AA checks (2.3s)
+  ok  2 e2e\browser-qa.spec.ts:19:1 › existing-board share survives reopening in a new browser tab (2.0s)
+  ok  3 e2e\browser-qa.spec.ts:54:1 › three named sessions converge across two servers, concurrent edits, reconnect and restart (17.7s)
+  ok  4 e2e\browser-qa.spec.ts:165:1 › time machine pause, all speeds, overlay and full replay preserve the changing live document (4.9s)
+  ok  5 e2e\browser-qa.spec.ts:249:3 › desktop: new-user editing, zoomed drag, properties and history remain usable (4.1s)
+  ok  6 e2e\browser-qa.spec.ts:249:3 › tablet: new-user editing, zoomed drag, properties and history remain usable (3.7s)
+  ok  7 e2e\browser-qa.spec.ts:249:3 › mobile: new-user editing, zoomed drag, properties and history remain usable (3.2s)
+  ok  8 e2e\browser-qa.spec.ts:343:1 › invalid invite shows an actionable error and offline history stays read-only (632ms)
+  ok  9 e2e\browser-qa.spec.ts:364:1 › unsubmitted text and dimension drafts survive another user's committed patch (5.6s)
+  ok 10 e2e\browser-qa.spec.ts:414:1 › a delayed real history response shows loading rather than the live document (1.3s)
+  x  11 e2e\browser-qa.spec.ts:450:1 › initial board loading is visible while a real state response is delayed (1.6m)
+(node:18600) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 12 e2e\collaboration.spec.ts:6:1 › two browser contexts edit, resize, recolor, recover offline edits and replay history (9.9s)
+  ok 13 e2e\collaboration.spec.ts:144:1 › landing page and starter board are functional at desktop and phone sizes (1.3s)
+
+
+  1) e2e\browser-qa.spec.ts:450:1 › initial board loading is visible while a real state response is delayed 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: page.evaluate: Test timeout of 90000ms exceeded.
+
+       at qa\helpers.ts:96
+
+      94 | }
+      95 | export async function state(p: Page): Promise<State> {
+    > 96 |   return p.evaluate(async () => {
+         |            ^
+      97 |     const id = location.pathname.split("/").at(-1);
+      98 |     const response = await fetch(`/api/boards/${id}`);
+      99 |     if (!response.ok) throw Error("State API failed: " + response.status);
+        at state ([WORKSPACE]\web\e2e\qa\helpers.ts:96:12)
+        at assertPersisted ([WORKSPACE]\web\e2e\qa\helpers.ts:162:20)
+        at [WORKSPACE]\web\e2e\browser-qa.spec.ts:481:9
+
+    attachment #1: initial-loading (image/png) ─────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-2\failures\browser-qa-initial-board-l-90c58-l-state-response-is-delayed\attachments\initial-loading-bac7834076f7453de74122637003a3112f4f7731.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-2\failures\browser-qa-initial-board-l-90c58-l-state-response-is-delayed\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-2\failures\browser-qa-initial-board-l-90c58-l-state-response-is-delayed\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\artifacts\browser-qa\runs\repair-2\failures\browser-qa-initial-board-l-90c58-l-state-response-is-delayed\error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-2\failures\browser-qa-initial-board-l-90c58-l-state-response-is-delayed\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\artifacts\browser-qa\runs\repair-2\failures\browser-qa-initial-board-l-90c58-l-state-response-is-delayed\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    e2e\browser-qa.spec.ts:450:1 › initial board loading is visible while a real state response is delayed 
+  12 passed (2.5m)

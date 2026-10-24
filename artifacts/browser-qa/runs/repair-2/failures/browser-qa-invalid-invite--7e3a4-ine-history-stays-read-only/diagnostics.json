@@ -1,0 +1,12 @@
+[
+  {
+    "kind": "http",
+    "message": "401 http://localhost:8080/api/boards/qa-not-authorized",
+    "expected": true
+  },
+  {
+    "kind": "console",
+    "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "expected": true
+  }
+]

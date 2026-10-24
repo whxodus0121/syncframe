@@ -1,0 +1,242 @@
+[
+  {
+    "module": "filippo.io/edwards25519",
+    "version": "v1.2.0",
+    "licenseHeader": [
+      "Copyright (c) 2009 The Go Authors. All rights reserved.",
+      "",
+      "Redistribution and use in source and binary forms, with or without",
+      "modification, are permitted provided that the following conditions are"
+    ]
+  },
+  {
+    "module": "github.com/bsm/ginkgo/v2",
+    "version": "v2.12.0",
+    "licenseHeader": [
+      "Copyright (c) 2013-2014 Onsi Fakhouri",
+      "",
+      "Permission is hereby granted, free of charge, to any person obtaining",
+      "a copy of this software and associated documentation files (the"
+    ]
+  },
+  {
+    "module": "github.com/bsm/gomega",
+    "version": "v1.27.10",
+    "licenseHeader": [
+      "Copyright (c) 2013-2014 Onsi Fakhouri",
+      "",
+      "Permission is hereby granted, free of charge, to any person obtaining",
+      "a copy of this software and associated documentation files (the"
+    ]
+  },
+  {
+    "module": "github.com/cespare/xxhash/v2",
+    "version": "v2.3.0",
+    "licenseHeader": [
+      "Copyright (c) 2016 Caleb Spare",
+      "",
+      "MIT License",
+      ""
+    ]
+  },
+  {
+    "module": "github.com/go-sql-driver/mysql",
+    "version": "v1.10.1",
+    "licenseHeader": [
+      "Mozilla Public License Version 2.0",
+      "==================================",
+      "",
+      "1. Definitions"
+    ]
+  },
+  {
+    "module": "github.com/gorilla/websocket",
+    "version": "v1.5.3",
+    "licenseHeader": [
+      "Copyright (c) 2013 The Gorilla WebSocket Authors. All rights reserved.",
+      "",
+      "Redistribution and use in source and binary forms, with or without",
+      "modification, are permitted provided that the following conditions are met:"
+    ]
+  },
+  {
+    "module": "github.com/klauspost/compress",
+    "version": "v1.20.3",
+    "licenseHeader": [
+      "Copyright (c) 2012 The Go Authors. All rights reserved.",
+      "Copyright (c) 2019 Klaus Post. All rights reserved.",
+      "",
+      "Redistribution and use in source and binary forms, with or without"
+    ]
+  },
+  {
+    "module": "github.com/klauspost/cpuid/v2",
+    "version": "v2.4.0",
+    "licenseHeader": [
+      "The MIT License (MIT)",
+      "",
+      "Copyright (c) 2015 Klaus Post",
+      ""
+    ]
+  },
+  {
+    "module": "github.com/pierrec/lz4/v4",
+    "version": "v4.1.33",
+    "licenseHeader": [
+      "Copyright (c) 2015, Pierre Curto",
+      "All rights reserved.",
+      "",
+      "Redistribution and use in source and binary forms, with or without"
+    ]
+  },
+  {
+    "module": "github.com/redis/go-redis/v9",
+    "version": "v9.23.0",
+    "licenseHeader": [
+      "Copyright (c) 2013 The github.com/redis/go-redis Authors.",
+      "All rights reserved.",
+      "",
+      "Redistribution and use in source and binary forms, with or without"
+    ]
+  },
+  {
+    "module": "github.com/segmentio/kafka-go",
+    "version": "v0.4.51",
+    "licenseHeader": [
+      "MIT License",
+      "",
+      "Copyright (c) 2017 Segment",
+      ""
+    ]
+  },
+  {
+    "module": "github.com/stretchr/testify",
+    "version": "v1.12.1",
+    "licenseHeader": [
+      "MIT License",
+      "",
+      "Copyright (c) 2012-2020 Mat Ryer, Tyler Bunnell and contributors.",
+      ""
+    ]
+  },
+  {
+    "module": "github.com/xdg-go/pbkdf2",
+    "version": "v1.0.0",
+    "licenseHeader": [
+      "",
+      "                                 Apache License",
+      "                           Version 2.0, January 2004",
+      "                        http://www.apache.org/licenses/"
+    ]
+  },
+  {
+    "module": "github.com/xdg-go/scram",
+    "version": "v1.1.2",
+    "licenseHeader": [
+      "",
+      "                                 Apache License",
+      "                           Version 2.0, January 2004",
+      "                        http://www.apache.org/licenses/"
+    ]
+  },
+  {
+    "module": "github.com/xdg-go/stringprep",
+    "version": "v1.0.4",
+    "licenseHeader": [
+      "",
+      "                                 Apache License",
+      "                           Version 2.0, January 2004",
+      "                        http://www.apache.org/licenses/"
+    ]
+  },
+  {
+    "module": "github.com/zeebo/xxh3",
+    "version": "v1.1.0",
+    "licenseHeader": [
+      "BSD 2-Clause License",
+      "",
+      "Copyright (c) 2012-2014, Yann Collet",
+      "Copyright (c) 2019, Jeff Wendling"
+    ]
+  },
+  {
+    "module": "go.uber.org/atomic",
+    "version": "v1.12.0",
+    "licenseHeader": [
+      "Copyright (c) 2016 Uber Technologies, Inc.",
+      "",
+      "Permission is hereby granted, free of charge, to any person obtaining a copy",
+      "of this software and associated documentation files (the \"Software\"), to deal"
+    ]
+  },
+  {
+    "module": "go.yaml.in/yaml/v3",
+    "version": "v3.0.5",
+    "licenseHeader": [
+      "",
+      "This project is covered by two different licenses: MIT and Apache.",
+      "",
+      "#### MIT License ####"
+    ]
+  },
+  {
+    "module": "golang.org/x/net",
+    "version": "v0.38.0",
+    "licenseHeader": [
+      "Copyright 2009 The Go Authors.",
+      "",
+      "Redistribution and use in source and binary forms, with or without",
+      "modification, are permitted provided that the following conditions are"
+    ]
+  },
+  {
+    "module": "golang.org/x/sys",
+    "version": "v0.48.0",
+    "licenseHeader": [
+      "Copyright 2009 The Go Authors.",
+      "",
+      "Redistribution and use in source and binary forms, with or without",
+      "modification, are permitted provided that the following conditions are"
+    ]
+  },
+  {
+    "module": "golang.org/x/text",
+    "version": "v0.23.0",
+    "licenseHeader": [
+      "Copyright 2009 The Go Authors.",
+      "",
+      "Redistribution and use in source and binary forms, with or without",
+      "modification, are permitted provided that the following conditions are"
+    ]
+  },
+  {
+    "module": "react",
+    "version": "19.3.1",
+    "license": "MIT"
+  },
+  {
+    "module": "react-dom",
+    "version": "19.3.1",
+    "license": "MIT"
+  },
+  {
+    "module": "lucide-react",
+    "version": "0.468.0",
+    "license": "ISC"
+  },
+  {
+    "module": "vite",
+    "version": "7.3.7",
+    "license": "MIT"
+  },
+  {
+    "module": "typescript",
+    "version": "5.9.3",
+    "license": "Apache-2.0"
+  },
+  {
+    "module": "@playwright/test",
+    "version": "1.64.1",
+    "license": "Apache-2.0"
+  }
+]

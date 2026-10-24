@@ -1,0 +1,13 @@
+
+> syncframe-web@1.0.0 build
+> tsc -b && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 1580 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.57 kB │ gzip:  0.38 kB
+dist/assets/index-Du2r2o1w.css   21.85 kB │ gzip:  5.29 kB
+dist/assets/index-CNFuBF-s.js   258.50 kB │ gzip: 81.33 kB
+✓ built in 2.63s

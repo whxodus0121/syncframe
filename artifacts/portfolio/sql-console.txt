@@ -1,0 +1,58 @@
+{
+  "at": "2026-10-24T11:12:56.306017+00:00",
+  "method": "direct MySQL state and events; full ordered replay; unique operation IDs; outbox/audit counts; no writes",
+  "results": [
+    {
+      "report": "burst-final-20.json",
+      "boardId": "660bb2adad818598d2108d4672e37ece",
+      "sqlRevision": 620,
+      "events": 620,
+      "uniqueOperations": 620,
+      "objects": 20,
+      "sqlEqualsReplay": true,
+      "outbox": 620,
+      "pending": 0,
+      "audit": 620,
+      "status": "PASS"
+    },
+    {
+      "report": "burst-final-50.json",
+      "boardId": "9938b90c916486d76d90846a9ac33ce7",
+      "sqlRevision": 1550,
+      "events": 1550,
+      "uniqueOperations": 1550,
+      "objects": 50,
+      "sqlEqualsReplay": true,
+      "outbox": 1550,
+      "pending": 0,
+      "audit": 1550,
+      "status": "PASS"
+    },
+    {
+      "report": "burst-final-100.json",
+      "boardId": "2b8e07266cefac5bbc75feb6a7b5e9b3",
+      "sqlRevision": 3100,
+      "events": 3100,
+      "uniqueOperations": 3100,
+      "objects": 100,
+      "sqlEqualsReplay": true,
+      "outbox": 3100,
+      "pending": 0,
+      "audit": 3100,
+      "status": "PASS"
+    },
+    {
+      "report": "soak-20-5m.json",
+      "boardId": "6b272eb302edba7cacf763faf10c856c",
+      "sqlRevision": 6000,
+      "events": 6000,
+      "uniqueOperations": 6000,
+      "objects": 20,
+      "sqlEqualsReplay": true,
+      "outbox": 6000,
+      "pending": 0,
+      "audit": 6000,
+      "status": "PASS"
+    }
+  ]
+}

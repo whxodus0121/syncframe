@@ -1,0 +1,34 @@
+?   	syncframe/cmd/load	[no test files]
+?   	syncframe/cmd/server	[no test files]
+?   	syncframe/cmd/soak	[no test files]
+=== RUN   TestConcurrentSocketsAndShutdown
+--- PASS: TestConcurrentSocketsAndShutdown (0.47s)
+PASS
+ok  	syncframe/internal/httpapi	2.809s
+=== RUN   TestConflictAndTombstone
+--- PASS: TestConflictAndTombstone (0.00s)
+=== RUN   TestReplayRejectsGapAndIgnoresDuplicate
+--- PASS: TestReplayRejectsGapAndIgnoresDuplicate (0.00s)
+=== RUN   TestValidation
+--- PASS: TestValidation (0.00s)
+PASS
+ok  	syncframe/internal/model	0.476s
+?   	syncframe/internal/pipeline	[no test files]
+?   	syncframe/internal/realtime	[no test files]
+=== RUN   TestMySQLConcurrencyAndReplay
+--- PASS: TestMySQLConcurrencyAndReplay (1.70s)
+=== RUN   TestMySQLDuplicateAndDeletion
+--- PASS: TestMySQLDuplicateAndDeletion (0.47s)
+=== RUN   TestMySQLRollbackInjectedFailure
+--- PASS: TestMySQLRollbackInjectedFailure (0.29s)
+=== RUN   TestAuditIdempotence
+--- PASS: TestAuditIdempotence (0.08s)
+PASS
+ok  	syncframe/internal/store	3.335s
+=== RUN   TestAPISecurityAndWebSocketRecovery
+--- PASS: TestAPISecurityAndWebSocketRecovery (0.18s)
+=== RUN   TestMultiServerAndInfrastructureFaults
+    system_test.go:204: TEST_DOCKER_FAULTS=1 required
+--- SKIP: TestMultiServerAndInfrastructureFaults (0.00s)
+PASS
+ok  	syncframe/tests	2.618s

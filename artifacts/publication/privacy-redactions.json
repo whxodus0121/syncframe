@@ -1,0 +1,259 @@
+{
+  "at": "2026-10-24T12:07:25.079529+00:00",
+  "changedFiles": 41,
+  "redactions": [
+    "workspace paths",
+    "user home paths",
+    "configured private email"
+  ],
+  "preserved": [
+    "private originals outside publication",
+    "screenshots/video",
+    "event/state values",
+    "assertions",
+    "timings"
+  ],
+  "files": [
+    {
+      "path": "artifacts/browser-qa/runs/publication-final-20261024/frontend-tests.txt",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/publication-final-20261024/results.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/publication-final-20261024/services.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/publication/verification.txt",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/baseline.txt",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/final-verification.txt",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/repair-1.txt",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/repair-2.txt",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/repro-controls.txt",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/repro-drafts-loading.txt",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/baseline/failures/browser-qa-desktop-new-use-73278-s-and-history-remain-usable/trace.zip",
+      "zipEntries": [
+        "test.trace",
+        "1-trace.trace",
+        "1-trace.stacks",
+        "0-trace.stacks"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/baseline/failures/browser-qa-existing-board--6698f-pening-in-a-new-browser-tab/trace.zip",
+      "zipEntries": [
+        "test.trace",
+        "1-trace.trace",
+        "1-trace.stacks",
+        "0-trace.stacks"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/baseline/failures/browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable/trace.zip",
+      "zipEntries": [
+        "test.trace",
+        "1-trace.stacks",
+        "0-trace.stacks"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/baseline/failures/browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable/trace.zip",
+      "zipEntries": [
+        "test.trace",
+        "1-trace.trace",
+        "1-trace.stacks",
+        "0-trace.stacks"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/baseline/failures/browser-qa-time-machine-pa-8df80--the-changing-live-document/trace.zip",
+      "zipEntries": [
+        "3-trace.stacks",
+        "2-trace.stacks",
+        "1-trace.stacks",
+        "0-trace.stacks",
+        "test.trace"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/baseline/results.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/final-20261024/frontend-tests.txt",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/final-20261024/results.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/final-20261024/services.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/portfolio-final-20261024/frontend-tests.txt",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/portfolio-final-20261024/results.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/portfolio-final-20261024/services.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repair-1/failures/browser-qa-desktop-new-use-73278-s-and-history-remain-usable/trace.zip",
+      "zipEntries": [
+        "test.trace",
+        "1-trace.trace",
+        "1-trace.stacks",
+        "0-trace.stacks"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repair-1/failures/browser-qa-three-named-ses-86d9f-edits-reconnect-and-restart/trace.zip",
+      "zipEntries": [
+        "5-trace.stacks",
+        "4-trace.stacks",
+        "3-trace.stacks",
+        "2-trace.stacks",
+        "1-trace.stacks",
+        "0-trace.stacks",
+        "test.trace"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repair-1/results.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repair-2/failures/browser-qa-initial-board-l-90c58-l-state-response-is-delayed/trace.zip",
+      "zipEntries": [
+        "test.trace",
+        "1-trace.trace",
+        "1-trace.stacks",
+        "0-trace.stacks"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repair-2/results.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repair-3/results.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repro-controls/failures/browser-qa-desktop-new-use-73278-s-and-history-remain-usable/trace.zip",
+      "zipEntries": [
+        "test.trace",
+        "1-trace.trace",
+        "1-trace.stacks",
+        "0-trace.stacks"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repro-controls/failures/browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable/trace.zip",
+      "zipEntries": [
+        "test.trace",
+        "1-trace.trace",
+        "1-trace.stacks",
+        "0-trace.stacks"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repro-controls/failures/browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable/trace.zip",
+      "zipEntries": [
+        "test.trace",
+        "1-trace.trace",
+        "1-trace.stacks",
+        "0-trace.stacks"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repro-controls/failures/browser-qa-time-machine-pa-8df80--the-changing-live-document/trace.zip",
+      "zipEntries": [
+        "3-trace.stacks",
+        "2-trace.stacks",
+        "1-trace.stacks",
+        "0-trace.stacks",
+        "test.trace",
+        "2-trace.trace"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repro-controls/results.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repro-drafts-loading/failures/browser-qa-a-delayed-real--ea51b-ther-than-the-live-document/trace.zip",
+      "zipEntries": [
+        "test.trace",
+        "1-trace.trace",
+        "1-trace.stacks",
+        "0-trace.stacks"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repro-drafts-loading/failures/browser-qa-unsubmitted-tex-ebda5-ther-user-s-committed-patch/trace.zip",
+      "zipEntries": [
+        "3-trace.stacks",
+        "2-trace.stacks",
+        "1-trace.stacks",
+        "0-trace.stacks",
+        "test.trace",
+        "2-trace.trace"
+      ]
+    },
+    {
+      "path": "artifacts/browser-qa/runs/repro-drafts-loading/results.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/e2e-results.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/portfolio/demo-results.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/portfolio/final-verification.txt",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/services-final.json",
+      "zipEntries": []
+    },
+    {
+      "path": "artifacts/verification.txt",
+      "zipEntries": []
+    }
+  ]
+}

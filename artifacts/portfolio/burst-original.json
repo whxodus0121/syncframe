@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-24T10:48:31Z",
+  "environment": "go1.26.10 windows/amd64; CPUs=12; target=http://127.0.0.1:8080",
+  "transport": "WebSocket; one board per stage; create + sequential acknowledged updates; no think time; includes SQL commit; not a capacity ceiling",
+  "updatesPerUser": 30,
+  "results": [
+    {
+      "users": 20,
+      "attempted": 620,
+      "succeeded": 620,
+      "failed": 0,
+      "seconds": 4.3495918,
+      "eventsPerSecond": 142.54211165286821,
+      "p50Ms": 127.208,
+      "p95Ms": 209.975,
+      "p99Ms": 249.001,
+      "converged": true,
+      "errors": []
+    },
+    {
+      "users": 50,
+      "attempted": 1550,
+      "succeeded": 1550,
+      "failed": 0,
+      "seconds": 17.6291366,
+      "eventsPerSecond": 87.92262690845564,
+      "p50Ms": 448.631,
+      "p95Ms": 1171.816,
+      "p99Ms": 1650.046,
+      "converged": true,
+      "errors": []
+    },
+    {
+      "users": 100,
+      "attempted": 3100,
+      "succeeded": 3100,
+      "failed": 0,
+      "seconds": 34.6835831,
+      "eventsPerSecond": 89.37946206601706,
+      "p50Ms": 812.863,
+      "p95Ms": 2703.486,
+      "p99Ms": 3978.563,
+      "converged": true,
+      "errors": []
+    }
+  ]
+}

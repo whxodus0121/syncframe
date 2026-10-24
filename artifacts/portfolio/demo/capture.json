@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-24T11:05:19.937Z",
+  "browser": "156.0.8078.4",
+  "viewport": "1440x960",
+  "scenarios": [
+    "two independent sessions through 8080/8081",
+    "remote movement and cursor",
+    "offline pending and same-ID recovery",
+    "read-only replay and overlay"
+  ],
+  "liveRevision": 4,
+  "rawVideo": "syncframe-demo.webm"
+}

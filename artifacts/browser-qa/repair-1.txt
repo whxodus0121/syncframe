@@ -1,0 +1,116 @@
+
+Running 7 tests using 1 worker
+
+(node:13652) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\browser-qa.spec.ts:19:1 › existing-board share survives reopening in a new browser tab (2.1s)
+  x  2 e2e\browser-qa.spec.ts:54:1 › three named sessions converge across two servers, concurrent edits, reconnect and restart (17.7s)
+(node:19632) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 e2e\browser-qa.spec.ts:165:1 › time machine pause, all speeds, overlay and full replay preserve the changing live document (5.5s)
+  x  4 e2e\browser-qa.spec.ts:249:3 › desktop: new-user editing, zoomed drag, properties and history remain usable (14.0s)
+(node:26028) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 e2e\browser-qa.spec.ts:249:3 › tablet: new-user editing, zoomed drag, properties and history remain usable (4.6s)
+  ok 6 e2e\browser-qa.spec.ts:249:3 › mobile: new-user editing, zoomed drag, properties and history remain usable (3.6s)
+  ok 7 e2e\browser-qa.spec.ts:326:1 › invalid invite shows an actionable error and offline history stays read-only (632ms)
+
+
+  1) e2e\browser-qa.spec.ts:54:1 › three named sessions converge across two servers, concurrent edits, reconnect and restart 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 4
+    Received: 3
+
+    Call Log:
+    - Timeout 12000ms exceeded while waiting on the predicate
+
+      108 |     c.getByLabel("Object text").press("Tab"),
+      109 |   ]);
+    > 110 |   await expect.poll(async () => (await state(a)).revision).toBe(before + 2);
+          |                                                            ^
+      111 |   const last = (await events(a)).at(-1)!;
+      112 |   expect(["QA Alice", "QA Cara"]).toContain(last.operation.actor);
+      113 |   for (const page of [a, b, c])
+        at [WORKSPACE]\web\e2e\browser-qa.spec.ts:110:60
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-three-named-ses-86d9f-edits-reconnect-and-restart\test-failed-3.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-three-named-ses-86d9f-edits-reconnect-and-restart\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-three-named-ses-86d9f-edits-reconnect-and-restart\test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-three-named-ses-86d9f-edits-reconnect-and-restart\error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-three-named-ses-86d9f-edits-reconnect-and-restart\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-three-named-ses-86d9f-edits-reconnect-and-restart\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) e2e\browser-qa.spec.ts:249:3 › desktop: new-user editing, zoomed drag, properties and history remain usable 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Time machine' })
+    Expected: visible
+    Timeout: 12000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: 'Time machine' }) with timeout 12000ms
+      - waiting for getByRole('heading', { name: 'Time machine' })
+
+
+      306 |     await expect(
+      307 |       p.getByRole("heading", { name: "Time machine" }),
+    > 308 |     ).toBeVisible();
+          |       ^
+      309 |     await snap(p, info, size.name + "-history");
+      310 |     await p.getByRole("button", { name: "Close history", exact: true }).click();
+      311 |     const scan = await new AxeBuilder({ page: p })
+        at [WORKSPACE]\web\e2e\browser-qa.spec.ts:308:7
+
+    attachment #1: desktop-home (image/png) ────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\attachments\desktop-home-bf9598ebb52329091a165fe66fbb9f35904bf96c.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: desktop-empty (image/png) ───────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\attachments\desktop-empty-421b371c8a6144de0b67f61c4d13be2a9b3cc8ed.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: desktop-properties (image/png) ──────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\attachments\desktop-properties-742d699c6bab69be259eb182c3e911dbd1f07783.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: desktop-edited (image/png) ──────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\attachments\desktop-edited-c09045c7e01f4faa4ee54f1b617af7fd0347851f.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\artifacts\browser-qa\runs\repair-1\failures\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    e2e\browser-qa.spec.ts:54:1 › three named sessions converge across two servers, concurrent edits, reconnect and restart 
+    e2e\browser-qa.spec.ts:249:3 › desktop: new-user editing, zoomed drag, properties and history remain usable 
+  5 passed (51.6s)

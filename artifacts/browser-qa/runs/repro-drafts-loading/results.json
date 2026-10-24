@@ -1,0 +1,301 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "[WORKSPACE]\\web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "browser-qa.config.ts",
+      "browser-qa.spec.ts",
+      "-g",
+      "unsubmitted|delayed real"
+    ],
+    "configFile": "[WORKSPACE]\\web\\browser-qa.config.ts",
+    "rootDir": "[WORKSPACE]/web/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "[WORKSPACE]/artifacts/browser-qa/runs/repro-drafts-loading/failures",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "[WORKSPACE]/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-drafts-loading\\failures",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "[WORKSPACE]\\web\\e2e",
+        "snapshotDir": "[WORKSPACE]\\web\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8080",
+          "viewport": {
+            "width": 1440,
+            "height": 960
+          },
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "actionTimeout": 15000,
+          "navigationTimeout": 20000,
+          "video": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../artifacts/browser-qa/runs/repro-drafts-loading/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "browser-qa.spec.ts",
+      "file": "browser-qa.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "unsubmitted text and dimension drafts survive another user's committed patch",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17225,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Object text')\nExpected: \u001b[32m\"Local draft must survive\"\u001b[39m\nReceived: \u001b[31m\"Remote commit while Alice is typing\"\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" getByLabel('Object text') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Object text')\u001b[22m\n\u001b[2m    27 × locator resolved to <textarea maxlength=\"2000\" aria-label=\"Object text\">Remote commit while Alice is typing</textarea>\u001b[22m\n\u001b[2m       - unexpected value \"Remote commit while Alice is typing\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Object text')\nExpected: \u001b[32m\"Local draft must survive\"\u001b[39m\nReceived: \u001b[31m\"Remote commit while Alice is typing\"\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" getByLabel('Object text') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Object text')\u001b[22m\n\u001b[2m    27 × locator resolved to <textarea maxlength=\"2000\" aria-label=\"Object text\">Remote commit while Alice is typing</textarea>\u001b[22m\n\u001b[2m       - unexpected value \"Remote commit while Alice is typing\"\u001b[22m\n\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:351:375",
+                    "location": {
+                      "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                      "column": 375,
+                      "line": 351
+                    },
+                    "snippet": "  349 | test(\"unsubmitted text and dimension drafts survive another user's committed patch\",async({browser,audit},info)=>{\n  350 |  const ac=await browser.newContext(),bc=await browser.newContext();await named(ac,\"QA Draft owner\");await named(bc,\"QA Remote writer\");const a=await ac.newPage(),b=await bc.newPage();[a,b].forEach(audit.watch);await create(a,\"QA draft preservation\");await b.goto(await invite(a,ac));await live(b);const id=await add(a,\"Sticky note\",350,150);const object=`[data-object-id=\"${id}\"]`;await expect(b.locator(object)).toBeVisible();await b.locator(object).click({position:{x:90,y:50}});\n> 351 |  await a.getByLabel(\"Object text\").fill(\"Local draft must survive\");await b.getByLabel(\"Object text\").fill(\"Remote commit while Alice is typing\");await b.getByLabel(\"Object text\").press(\"Tab\");await expect(a.locator(object)).toContainText(\"Remote commit while Alice is typing\");await snap(a,info,\"local-draft-during-remote-change\");await expect(a.getByLabel(\"Object text\")).toHaveValue(\"Local draft must survive\");await a.getByLabel(\"Object text\").press(\"Tab\");await expect(b.locator(object)).toContainText(\"Local draft must survive\");\n      |                                                                                                                                                                                                                                                                                                                                                                                       ^\n  352 |  await a.getByLabel(\"Object width\",{exact:true}).fill(\"280\");await b.getByLabel(\"Object width\",{exact:true}).fill(\"240\");await b.getByLabel(\"Object width\",{exact:true}).press(\"Tab\");await expect(a.locator(object).locator(\"rect\").first()).toHaveAttribute(\"width\",\"240\");await expect(a.getByLabel(\"Object width\",{exact:true})).toHaveValue(\"280\");await a.getByLabel(\"Object width\",{exact:true}).press(\"Tab\");await expect(b.locator(object).locator(\"rect\").first()).toHaveAttribute(\"width\",\"280\");await assertPersisted(a);await ac.close();await bc.close();\n  353 | });\n  354 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                        "column": 375,
+                        "line": 351
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Object text')\nExpected: \u001b[32m\"Local draft must survive\"\u001b[39m\nReceived: \u001b[31m\"Remote commit while Alice is typing\"\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" getByLabel('Object text') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Object text')\u001b[22m\n\u001b[2m    27 × locator resolved to <textarea maxlength=\"2000\" aria-label=\"Object text\">Remote commit while Alice is typing</textarea>\u001b[22m\n\u001b[2m       - unexpected value \"Remote commit while Alice is typing\"\u001b[22m\n\n\n  349 | test(\"unsubmitted text and dimension drafts survive another user's committed patch\",async({browser,audit},info)=>{\n  350 |  const ac=await browser.newContext(),bc=await browser.newContext();await named(ac,\"QA Draft owner\");await named(bc,\"QA Remote writer\");const a=await ac.newPage(),b=await bc.newPage();[a,b].forEach(audit.watch);await create(a,\"QA draft preservation\");await b.goto(await invite(a,ac));await live(b);const id=await add(a,\"Sticky note\",350,150);const object=`[data-object-id=\"${id}\"]`;await expect(b.locator(object)).toBeVisible();await b.locator(object).click({position:{x:90,y:50}});\n> 351 |  await a.getByLabel(\"Object text\").fill(\"Local draft must survive\");await b.getByLabel(\"Object text\").fill(\"Remote commit while Alice is typing\");await b.getByLabel(\"Object text\").press(\"Tab\");await expect(a.locator(object)).toContainText(\"Remote commit while Alice is typing\");await snap(a,info,\"local-draft-during-remote-change\");await expect(a.getByLabel(\"Object text\")).toHaveValue(\"Local draft must survive\");await a.getByLabel(\"Object text\").press(\"Tab\");await expect(b.locator(object)).toContainText(\"Local draft must survive\");\n      |                                                                                                                                                                                                                                                                                                                                                                                       ^\n  352 |  await a.getByLabel(\"Object width\",{exact:true}).fill(\"280\");await b.getByLabel(\"Object width\",{exact:true}).fill(\"240\");await b.getByLabel(\"Object width\",{exact:true}).press(\"Tab\");await expect(a.locator(object).locator(\"rect\").first()).toHaveAttribute(\"width\",\"240\");await expect(a.getByLabel(\"Object width\",{exact:true})).toHaveValue(\"280\");await a.getByLabel(\"Object width\",{exact:true}).press(\"Tab\");await expect(b.locator(object).locator(\"rect\").first()).toHaveAttribute(\"width\",\"280\");await assertPersisted(a);await ac.close();await bc.close();\n  353 | });\n  354 |\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:351:375"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:08:33.430Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "local-draft-during-remote-change",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-drafts-loading\\failures\\browser-qa-unsubmitted-tex-ebda5-ther-user-s-committed-patch\\attachments\\local-draft-during-remote-change-d93263ba04e5facc850e0142b22a00a0122b2ed7.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-drafts-loading\\failures\\browser-qa-unsubmitted-tex-ebda5-ther-user-s-committed-patch\\test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-drafts-loading\\failures\\browser-qa-unsubmitted-tex-ebda5-ther-user-s-committed-patch\\test-failed-2.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-drafts-loading\\failures\\browser-qa-unsubmitted-tex-ebda5-ther-user-s-committed-patch\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-drafts-loading\\failures\\browser-qa-unsubmitted-tex-ebda5-ther-user-s-committed-patch\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                    "column": 375,
+                    "line": 351
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-36691d60fe2e735fe7d0",
+          "file": "browser-qa.spec.ts",
+          "line": 349,
+          "column": 1
+        },
+        {
+          "title": "a delayed real history response shows loading rather than the live document",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13712,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status').filter({ hasText: 'Loading revision 0' })\nExpected: visible\nTimeout: 12000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('status').filter({ hasText: 'Loading revision 0' }) with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status').filter({ hasText: 'Loading revision 0' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status').filter({ hasText: 'Loading revision 0' })\nExpected: visible\nTimeout: 12000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('status').filter({ hasText: 'Loading revision 0' }) with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status').filter({ hasText: 'Loading revision 0' })\u001b[22m\n\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:357:135",
+                    "location": {
+                      "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                      "column": 135,
+                      "line": 357
+                    },
+                    "snippet": "  355 | test(\"a delayed real history response shows loading rather than the live document\",async({page,audit},info)=>{\n  356 |  audit.watch(page);await create(page,\"QA delayed history\");await add(page,\"Rectangle\",350,170);let release:()=>void=()=>{};let ready:()=>void=()=>{};const held=new Promise<void>(resolve=>{ready=resolve});await page.route(\"**/api/boards/*?revision=0\",async route=>{await new Promise<void>(resolve=>{release=resolve;ready()});await route.continue()});await page.getByRole(\"button\",{name:\"First event\",exact:true}).click();await held;\n> 357 |  try{await snap(page,info,\"history-response-in-flight\");await expect(page.getByRole(\"status\").filter({hasText:\"Loading revision 0\"})).toBeVisible();await expect(page.getByTestId(\"board-object\")).toHaveCount(0)}finally{release()}\n      |                                                                                                                                       ^\n  358 |  await expect(page.getByTestId(\"revision\")).toHaveText(\"REV 0\");await expect(page.getByTestId(\"board-object\")).toHaveCount(0);expect((await state(page)).revision).toBe(1);await assertPersisted(page);\n  359 | });\n  360 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                        "column": 135,
+                        "line": 357
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status').filter({ hasText: 'Loading revision 0' })\nExpected: visible\nTimeout: 12000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('status').filter({ hasText: 'Loading revision 0' }) with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status').filter({ hasText: 'Loading revision 0' })\u001b[22m\n\n\n  355 | test(\"a delayed real history response shows loading rather than the live document\",async({page,audit},info)=>{\n  356 |  audit.watch(page);await create(page,\"QA delayed history\");await add(page,\"Rectangle\",350,170);let release:()=>void=()=>{};let ready:()=>void=()=>{};const held=new Promise<void>(resolve=>{ready=resolve});await page.route(\"**/api/boards/*?revision=0\",async route=>{await new Promise<void>(resolve=>{release=resolve;ready()});await route.continue()});await page.getByRole(\"button\",{name:\"First event\",exact:true}).click();await held;\n> 357 |  try{await snap(page,info,\"history-response-in-flight\");await expect(page.getByRole(\"status\").filter({hasText:\"Loading revision 0\"})).toBeVisible();await expect(page.getByTestId(\"board-object\")).toHaveCount(0)}finally{release()}\n      |                                                                                                                                       ^\n  358 |  await expect(page.getByTestId(\"revision\")).toHaveText(\"REV 0\");await expect(page.getByTestId(\"board-object\")).toHaveCount(0);expect((await state(page)).revision).toBe(1);await assertPersisted(page);\n  359 | });\n  360 |\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:357:135"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:08:51.730Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "history-response-in-flight",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-drafts-loading\\failures\\browser-qa-a-delayed-real--ea51b-ther-than-the-live-document\\attachments\\history-response-in-flight-76726aa5f1d73bfa777f1239845d0d12989bf995.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-drafts-loading\\failures\\browser-qa-a-delayed-real--ea51b-ther-than-the-live-document\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-drafts-loading\\failures\\browser-qa-a-delayed-real--ea51b-ther-than-the-live-document\\video.webm"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-drafts-loading\\failures\\browser-qa-a-delayed-real--ea51b-ther-than-the-live-document\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-drafts-loading\\failures\\browser-qa-a-delayed-real--ea51b-ther-than-the-live-document\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                    "column": 135,
+                    "line": 357
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-67d77d95094152f73e41",
+          "file": "browser-qa.spec.ts",
+          "line": 355,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-24T10:08:32.633Z",
+    "duration": 33129.97,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

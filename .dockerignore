@@ -1,0 +1,9 @@
+.git
+.env
+web/node_modules
+web/test-results
+web/playwright-report
+web/dist
+artifacts
+bin
+*.exe

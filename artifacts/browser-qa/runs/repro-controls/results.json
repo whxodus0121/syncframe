@@ -1,0 +1,489 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "[WORKSPACE]\\web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "browser-qa.config.ts",
+      "browser-qa.spec.ts",
+      "-g",
+      "time machine|desktop:|tablet:|mobile:"
+    ],
+    "configFile": "[WORKSPACE]\\web\\browser-qa.config.ts",
+    "rootDir": "[WORKSPACE]/web/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "[WORKSPACE]/artifacts/browser-qa/runs/repro-controls/failures",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "[WORKSPACE]/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "[WORKSPACE]\\web\\e2e",
+        "snapshotDir": "[WORKSPACE]\\web\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8080",
+          "viewport": {
+            "width": 1440,
+            "height": 960
+          },
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "actionTimeout": 15000,
+          "navigationTimeout": 20000,
+          "video": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../artifacts/browser-qa/runs/repro-controls/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "browser-qa.spec.ts",
+      "file": "browser-qa.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "time machine pause, all speeds, overlay and full replay preserve the changing live document",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17089,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.travel-banner')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.travel-banner') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for locator('.travel-banner')\u001b[22m\n\u001b[2m    27 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.travel-banner')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.travel-banner') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for locator('.travel-banner')\u001b[22m\n\u001b[2m    27 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:29:554",
+                    "location": {
+                      "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                      "column": 554,
+                      "line": 29
+                    },
+                    "snippet": "  27 |  // Advance beyond more than two playback intervals without a sleep-based oracle.\n  28 |  await a.clock.install();await a.clock.fastForward(5000);await expect(a.getByTestId(\"revision\")).toHaveText(paused);await a.clock.resume();await a.getByRole(\"checkbox\",{name:\"Overlay live positions\"}).check();await expect(a.locator('svg.canvas > rect[stroke=\"#16a57a\"]')).toHaveCount(1);\n> 29 |  await b.locator(`[data-object-id=\"${id}\"]`).click({position:{x:90,y:50}});await b.getByLabel(\"Object text\").fill(\"Live changed during playback\");await b.getByLabel(\"Object text\").press(\"Tab\");await expect.poll(async()=>(await state(b)).revision).toBe(original.revision+1);await expect(a.getByTestId(\"revision\")).toHaveText(paused);expect((await state(a)).objects[id].text).toBe(\"Live changed during playback\");await snap(a,info,\"history-overlay\");await a.getByRole(\"button\",{name:\"Canvas\",exact:true}).click();await expect(a.locator(\".travel-banner\")).toHaveCount(0);await expect(a.locator(`[data-object-id=\"${id}\"]`)).toContainText(\"Live changed during playback\");await assertPersisted(a);await one.close();await two.close();\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^\n  30 | });\n  31 |\n  32 | for(const size of [{name:\"desktop\",width:1440,height:960},{name:\"tablet\",width:768,height:1024},{name:\"mobile\",width:390,height:844}]){"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                        "column": 554,
+                        "line": 29
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.travel-banner')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.travel-banner') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for locator('.travel-banner')\u001b[22m\n\u001b[2m    27 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  27 |  // Advance beyond more than two playback intervals without a sleep-based oracle.\n  28 |  await a.clock.install();await a.clock.fastForward(5000);await expect(a.getByTestId(\"revision\")).toHaveText(paused);await a.clock.resume();await a.getByRole(\"checkbox\",{name:\"Overlay live positions\"}).check();await expect(a.locator('svg.canvas > rect[stroke=\"#16a57a\"]')).toHaveCount(1);\n> 29 |  await b.locator(`[data-object-id=\"${id}\"]`).click({position:{x:90,y:50}});await b.getByLabel(\"Object text\").fill(\"Live changed during playback\");await b.getByLabel(\"Object text\").press(\"Tab\");await expect.poll(async()=>(await state(b)).revision).toBe(original.revision+1);await expect(a.getByTestId(\"revision\")).toHaveText(paused);expect((await state(a)).objects[id].text).toBe(\"Live changed during playback\");await snap(a,info,\"history-overlay\");await a.getByRole(\"button\",{name:\"Canvas\",exact:true}).click();await expect(a.locator(\".travel-banner\")).toHaveCount(0);await expect(a.locator(`[data-object-id=\"${id}\"]`)).toContainText(\"Live changed during playback\");await assertPersisted(a);await one.close();await two.close();\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^\n  30 | });\n  31 |\n  32 | for(const size of [{name:\"desktop\",width:1440,height:960},{name:\"tablet\",width:768,height:1024},{name:\"mobile\",width:390,height:844}]){\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:29:554"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:02:13.767Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "history-overlay",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-time-machine-pa-8df80--the-changing-live-document\\attachments\\history-overlay-fa9f838f57994da2162e47d2a12180c605e881c6.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-time-machine-pa-8df80--the-changing-live-document\\test-failed-2.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-time-machine-pa-8df80--the-changing-live-document\\test-failed-1.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-time-machine-pa-8df80--the-changing-live-document\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-time-machine-pa-8df80--the-changing-live-document\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                    "column": 554,
+                    "line": 29
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-334210339a7e7a383416",
+          "file": "browser-qa.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "desktop: new-user editing, zoomed drag, properties and history remain usable",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13648,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\"]')\nExpected: \u001b[32m\"translate(\u001b[7m12\u001b[27m0,1\u001b[7m7\u001b[27m0)\"\u001b[39m\nReceived: \u001b[31m\"translate(\u001b[7m9\u001b[27m0,1\u001b[7m4\u001b[27m0)\"\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('[data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\"]') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\"]')\u001b[22m\n\u001b[2m    27 × locator resolved to <g tabindex=\"0\" role=\"button\" class=\"canvas-object\" data-testid=\"board-object\" transform=\"translate(90,140)\" aria-label=\"note: A readable idea on desktop\" data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\">…</g>\u001b[22m\n\u001b[2m       - unexpected value \"translate(90,140)\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\"]')\nExpected: \u001b[32m\"translate(\u001b[7m12\u001b[27m0,1\u001b[7m7\u001b[27m0)\"\u001b[39m\nReceived: \u001b[31m\"translate(\u001b[7m9\u001b[27m0,1\u001b[7m4\u001b[27m0)\"\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('[data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\"]') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\"]')\u001b[22m\n\u001b[2m    27 × locator resolved to <g tabindex=\"0\" role=\"button\" class=\"canvas-object\" data-testid=\"board-object\" transform=\"translate(90,140)\" aria-label=\"note: A readable idea on desktop\" data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\">…</g>\u001b[22m\n\u001b[2m       - unexpected value \"translate(90,140)\"\u001b[22m\n\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:37:192",
+                    "location": {
+                      "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                      "column": 192,
+                      "line": 37
+                    },
+                    "snippet": "  35 |   // A new user's first click must reach the canvas, including on a phone.\n  36 |   const objectId=await add(p,\"Sticky note\",90,140);const object=p.locator(`[data-object-id=\"${objectId}\"]`);await expect(object).toBeVisible();await p.getByLabel(\"Object text\").fill(\"A readable idea on \"+size.name);await p.getByLabel(\"Object text\").press(\"Tab\");await expect(object).toContainText(\"A readable idea\");await p.getByRole(\"button\",{name:\"Color #e4dcfc\",exact:true}).click();await expect(object.locator(\"rect\").first()).toHaveAttribute(\"fill\",\"#e4dcfc\");await snap(p,info,size.name+\"-properties\");\n> 37 |   const box=await object.boundingBox();await p.mouse.move(box!.x+75,box!.y+45);await p.mouse.down();await p.mouse.move(box!.x+105,box!.y+75,{steps:6});await p.mouse.up();await expect(object).toHaveAttribute(\"transform\",\"translate(120,170)\");await p.getByLabel(\"Close properties\").click();await p.getByRole(\"button\",{name:\"Zoom out\",exact:true}).click();await p.getByRole(\"button\",{name:\"Zoom out\",exact:true}).click();await expect(p.locator(\".zoom\")).toContainText(\"80%\");const zoomBox=await object.boundingBox();await p.mouse.move(zoomBox!.x+50,zoomBox!.y+35);await p.mouse.down();await p.mouse.move(zoomBox!.x+90,zoomBox!.y+59,{steps:5});await p.mouse.up();await expect(object).toHaveAttribute(\"transform\",\"translate(170,200)\");await object.press(\"ArrowRight\");await expect(object).toHaveAttribute(\"transform\",\"translate(180,200)\");await snap(p,info,size.name+\"-edited\");\n     |                                                                                                                                                                                                ^\n  38 |   await p.getByLabel(\"Close properties\").click();await p.getByRole(\"button\",{name:\"History\",exact:true}).first().click();await expect(p.getByRole(\"heading\",{name:\"Time machine\"})).toBeVisible();await snap(p,info,size.name+\"-history\");await p.getByRole(\"button\",{name:\"Close history\",exact:true}).click();const scan=await new AxeBuilder({page:p}).withTags([\"wcag2a\",\"wcag2aa\",\"wcag21aa\"]).analyze();expect(scan.violations).toEqual([]);const durable=await assertPersisted(p);await p.reload();await live(p);expect(await state(p)).toEqual(durable);await p.locator(`[data-object-id=\"${objectId}\"]`).press(\"Delete\");await expect(p.getByTestId(\"board-object\")).toHaveCount(0);await assertPersisted(p);await context.close();\n  39 |  });\n  40 | }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                        "column": 192,
+                        "line": 37
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\"]')\nExpected: \u001b[32m\"translate(\u001b[7m12\u001b[27m0,1\u001b[7m7\u001b[27m0)\"\u001b[39m\nReceived: \u001b[31m\"translate(\u001b[7m9\u001b[27m0,1\u001b[7m4\u001b[27m0)\"\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('[data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\"]') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\"]')\u001b[22m\n\u001b[2m    27 × locator resolved to <g tabindex=\"0\" role=\"button\" class=\"canvas-object\" data-testid=\"board-object\" transform=\"translate(90,140)\" aria-label=\"note: A readable idea on desktop\" data-object-id=\"b9998901-c174-4ad4-8bf7-74bc442ab164\">…</g>\u001b[22m\n\u001b[2m       - unexpected value \"translate(90,140)\"\u001b[22m\n\n\n  35 |   // A new user's first click must reach the canvas, including on a phone.\n  36 |   const objectId=await add(p,\"Sticky note\",90,140);const object=p.locator(`[data-object-id=\"${objectId}\"]`);await expect(object).toBeVisible();await p.getByLabel(\"Object text\").fill(\"A readable idea on \"+size.name);await p.getByLabel(\"Object text\").press(\"Tab\");await expect(object).toContainText(\"A readable idea\");await p.getByRole(\"button\",{name:\"Color #e4dcfc\",exact:true}).click();await expect(object.locator(\"rect\").first()).toHaveAttribute(\"fill\",\"#e4dcfc\");await snap(p,info,size.name+\"-properties\");\n> 37 |   const box=await object.boundingBox();await p.mouse.move(box!.x+75,box!.y+45);await p.mouse.down();await p.mouse.move(box!.x+105,box!.y+75,{steps:6});await p.mouse.up();await expect(object).toHaveAttribute(\"transform\",\"translate(120,170)\");await p.getByLabel(\"Close properties\").click();await p.getByRole(\"button\",{name:\"Zoom out\",exact:true}).click();await p.getByRole(\"button\",{name:\"Zoom out\",exact:true}).click();await expect(p.locator(\".zoom\")).toContainText(\"80%\");const zoomBox=await object.boundingBox();await p.mouse.move(zoomBox!.x+50,zoomBox!.y+35);await p.mouse.down();await p.mouse.move(zoomBox!.x+90,zoomBox!.y+59,{steps:5});await p.mouse.up();await expect(object).toHaveAttribute(\"transform\",\"translate(170,200)\");await object.press(\"ArrowRight\");await expect(object).toHaveAttribute(\"transform\",\"translate(180,200)\");await snap(p,info,size.name+\"-edited\");\n     |                                                                                                                                                                                                ^\n  38 |   await p.getByLabel(\"Close properties\").click();await p.getByRole(\"button\",{name:\"History\",exact:true}).first().click();await expect(p.getByRole(\"heading\",{name:\"Time machine\"})).toBeVisible();await snap(p,info,size.name+\"-history\");await p.getByRole(\"button\",{name:\"Close history\",exact:true}).click();const scan=await new AxeBuilder({page:p}).withTags([\"wcag2a\",\"wcag2aa\",\"wcag21aa\"]).analyze();expect(scan.violations).toEqual([]);const durable=await assertPersisted(p);await p.reload();await live(p);expect(await state(p)).toEqual(durable);await p.locator(`[data-object-id=\"${objectId}\"]`).press(\"Delete\");await expect(p.getByTestId(\"board-object\")).toHaveCount(0);await assertPersisted(p);await context.close();\n  39 |  });\n  40 | }\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:37:192"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:02:32.192Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "desktop-home",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\\attachments\\desktop-home-7b3c2e9cb09ed9ff4cc0f99a0503f6cc330660b1.png"
+                    },
+                    {
+                      "name": "desktop-empty",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\\attachments\\desktop-empty-61981488382eb06a3279e5690260be5a8288f5a2.png"
+                    },
+                    {
+                      "name": "desktop-properties",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\\attachments\\desktop-properties-635182cf1e4b00384ef9e301dcf9c4cb7ac03491.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\\test-failed-1.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-desktop-new-use-73278-s-and-history-remain-usable\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                    "column": 192,
+                    "line": 37
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-5802b279bc60c2281d97",
+          "file": "browser-qa.spec.ts",
+          "line": 33,
+          "column": 2
+        },
+        {
+          "title": "tablet: new-user editing, zoomed drag, properties and history remain usable",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13315,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\"]')\nExpected: \u001b[32m\"translate(\u001b[7m12\u001b[27m0,1\u001b[7m7\u001b[27m0)\"\u001b[39m\nReceived: \u001b[31m\"translate(\u001b[7m9\u001b[27m0,1\u001b[7m4\u001b[27m0)\"\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('[data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\"]') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\"]')\u001b[22m\n\u001b[2m    27 × locator resolved to <g tabindex=\"0\" role=\"button\" class=\"canvas-object\" data-testid=\"board-object\" transform=\"translate(90,140)\" aria-label=\"note: A readable idea on tablet\" data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\">…</g>\u001b[22m\n\u001b[2m       - unexpected value \"translate(90,140)\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\"]')\nExpected: \u001b[32m\"translate(\u001b[7m12\u001b[27m0,1\u001b[7m7\u001b[27m0)\"\u001b[39m\nReceived: \u001b[31m\"translate(\u001b[7m9\u001b[27m0,1\u001b[7m4\u001b[27m0)\"\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('[data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\"]') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\"]')\u001b[22m\n\u001b[2m    27 × locator resolved to <g tabindex=\"0\" role=\"button\" class=\"canvas-object\" data-testid=\"board-object\" transform=\"translate(90,140)\" aria-label=\"note: A readable idea on tablet\" data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\">…</g>\u001b[22m\n\u001b[2m       - unexpected value \"translate(90,140)\"\u001b[22m\n\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:37:192",
+                    "location": {
+                      "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                      "column": 192,
+                      "line": 37
+                    },
+                    "snippet": "  35 |   // A new user's first click must reach the canvas, including on a phone.\n  36 |   const objectId=await add(p,\"Sticky note\",90,140);const object=p.locator(`[data-object-id=\"${objectId}\"]`);await expect(object).toBeVisible();await p.getByLabel(\"Object text\").fill(\"A readable idea on \"+size.name);await p.getByLabel(\"Object text\").press(\"Tab\");await expect(object).toContainText(\"A readable idea\");await p.getByRole(\"button\",{name:\"Color #e4dcfc\",exact:true}).click();await expect(object.locator(\"rect\").first()).toHaveAttribute(\"fill\",\"#e4dcfc\");await snap(p,info,size.name+\"-properties\");\n> 37 |   const box=await object.boundingBox();await p.mouse.move(box!.x+75,box!.y+45);await p.mouse.down();await p.mouse.move(box!.x+105,box!.y+75,{steps:6});await p.mouse.up();await expect(object).toHaveAttribute(\"transform\",\"translate(120,170)\");await p.getByLabel(\"Close properties\").click();await p.getByRole(\"button\",{name:\"Zoom out\",exact:true}).click();await p.getByRole(\"button\",{name:\"Zoom out\",exact:true}).click();await expect(p.locator(\".zoom\")).toContainText(\"80%\");const zoomBox=await object.boundingBox();await p.mouse.move(zoomBox!.x+50,zoomBox!.y+35);await p.mouse.down();await p.mouse.move(zoomBox!.x+90,zoomBox!.y+59,{steps:5});await p.mouse.up();await expect(object).toHaveAttribute(\"transform\",\"translate(170,200)\");await object.press(\"ArrowRight\");await expect(object).toHaveAttribute(\"transform\",\"translate(180,200)\");await snap(p,info,size.name+\"-edited\");\n     |                                                                                                                                                                                                ^\n  38 |   await p.getByLabel(\"Close properties\").click();await p.getByRole(\"button\",{name:\"History\",exact:true}).first().click();await expect(p.getByRole(\"heading\",{name:\"Time machine\"})).toBeVisible();await snap(p,info,size.name+\"-history\");await p.getByRole(\"button\",{name:\"Close history\",exact:true}).click();const scan=await new AxeBuilder({page:p}).withTags([\"wcag2a\",\"wcag2aa\",\"wcag21aa\"]).analyze();expect(scan.violations).toEqual([]);const durable=await assertPersisted(p);await p.reload();await live(p);expect(await state(p)).toEqual(durable);await p.locator(`[data-object-id=\"${objectId}\"]`).press(\"Delete\");await expect(p.getByTestId(\"board-object\")).toHaveCount(0);await assertPersisted(p);await context.close();\n  39 |  });\n  40 | }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                        "column": 192,
+                        "line": 37
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\"]')\nExpected: \u001b[32m\"translate(\u001b[7m12\u001b[27m0,1\u001b[7m7\u001b[27m0)\"\u001b[39m\nReceived: \u001b[31m\"translate(\u001b[7m9\u001b[27m0,1\u001b[7m4\u001b[27m0)\"\u001b[39m\nTimeout:  12000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('[data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\"]') with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\"]')\u001b[22m\n\u001b[2m    27 × locator resolved to <g tabindex=\"0\" role=\"button\" class=\"canvas-object\" data-testid=\"board-object\" transform=\"translate(90,140)\" aria-label=\"note: A readable idea on tablet\" data-object-id=\"3c7932f6-b094-44e8-9c61-56eb28db61e6\">…</g>\u001b[22m\n\u001b[2m       - unexpected value \"translate(90,140)\"\u001b[22m\n\n\n  35 |   // A new user's first click must reach the canvas, including on a phone.\n  36 |   const objectId=await add(p,\"Sticky note\",90,140);const object=p.locator(`[data-object-id=\"${objectId}\"]`);await expect(object).toBeVisible();await p.getByLabel(\"Object text\").fill(\"A readable idea on \"+size.name);await p.getByLabel(\"Object text\").press(\"Tab\");await expect(object).toContainText(\"A readable idea\");await p.getByRole(\"button\",{name:\"Color #e4dcfc\",exact:true}).click();await expect(object.locator(\"rect\").first()).toHaveAttribute(\"fill\",\"#e4dcfc\");await snap(p,info,size.name+\"-properties\");\n> 37 |   const box=await object.boundingBox();await p.mouse.move(box!.x+75,box!.y+45);await p.mouse.down();await p.mouse.move(box!.x+105,box!.y+75,{steps:6});await p.mouse.up();await expect(object).toHaveAttribute(\"transform\",\"translate(120,170)\");await p.getByLabel(\"Close properties\").click();await p.getByRole(\"button\",{name:\"Zoom out\",exact:true}).click();await p.getByRole(\"button\",{name:\"Zoom out\",exact:true}).click();await expect(p.locator(\".zoom\")).toContainText(\"80%\");const zoomBox=await object.boundingBox();await p.mouse.move(zoomBox!.x+50,zoomBox!.y+35);await p.mouse.down();await p.mouse.move(zoomBox!.x+90,zoomBox!.y+59,{steps:5});await p.mouse.up();await expect(object).toHaveAttribute(\"transform\",\"translate(170,200)\");await object.press(\"ArrowRight\");await expect(object).toHaveAttribute(\"transform\",\"translate(180,200)\");await snap(p,info,size.name+\"-edited\");\n     |                                                                                                                                                                                                ^\n  38 |   await p.getByLabel(\"Close properties\").click();await p.getByRole(\"button\",{name:\"History\",exact:true}).first().click();await expect(p.getByRole(\"heading\",{name:\"Time machine\"})).toBeVisible();await snap(p,info,size.name+\"-history\");await p.getByRole(\"button\",{name:\"Close history\",exact:true}).click();const scan=await new AxeBuilder({page:p}).withTags([\"wcag2a\",\"wcag2aa\",\"wcag21aa\"]).analyze();expect(scan.violations).toEqual([]);const durable=await assertPersisted(p);await p.reload();await live(p);expect(await state(p)).toEqual(durable);await p.locator(`[data-object-id=\"${objectId}\"]`).press(\"Delete\");await expect(p.getByTestId(\"board-object\")).toHaveCount(0);await assertPersisted(p);await context.close();\n  39 |  });\n  40 | }\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:37:192"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:02:46.910Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "tablet-home",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\\attachments\\tablet-home-77ca17da32121b23fd3d7e92137f3116b3c84436.png"
+                    },
+                    {
+                      "name": "tablet-empty",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\\attachments\\tablet-empty-273b4587f7cac583dd3d8ba6b07f96e3a59c7cb1.png"
+                    },
+                    {
+                      "name": "tablet-properties",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\\attachments\\tablet-properties-46926d4beac5134d2cba2ea4e9284e1ac9dff5ca.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\\test-failed-1.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-tablet-new-user-9eaab-s-and-history-remain-usable\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "[WORKSPACE]\\web\\e2e\\browser-qa.spec.ts",
+                    "column": 192,
+                    "line": 37
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-d38cfeb4d82d08b858ec",
+          "file": "browser-qa.spec.ts",
+          "line": 33,
+          "column": 2
+        },
+        {
+          "title": "mobile: new-user editing, zoomed drag, properties and history remain usable",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15723,
+                  "error": {
+                    "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Sticky note', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"\" aria-pressed=\"false\" title=\"Sticky note (N)\" aria-label=\"Sticky note\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span>…</span> from <aside class=\"history-panel\">…</aside> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span>…</span> from <aside class=\"history-panel\">…</aside> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span>…</span> from <aside class=\"history-panel\">…</aside> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+                    "stack": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Sticky note', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"\" aria-pressed=\"false\" title=\"Sticky note (N)\" aria-label=\"Sticky note\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span>…</span> from <aside class=\"history-panel\">…</aside> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span>…</span> from <aside class=\"history-panel\">…</aside> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span>…</span> from <aside class=\"history-panel\">…</aside> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at add ([WORKSPACE]\\web\\e2e\\qa\\helpers.ts:32:116)\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:36:24",
+                    "location": {
+                      "file": "[WORKSPACE]\\web\\e2e\\qa\\helpers.ts",
+                      "column": 116,
+                      "line": 32
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mqa\\helpers.ts:32\n\n  30 | export async function settled(p:Page){await expect(p.locator(\".connection\")).not.toContainText(\"pending\");await expect.poll(async()=>Number((await p.getByTestId(\"revision\").innerText()).replace(\"REV \",\"\"))).toBe((await state(p)).revision)}\n  31 | export async function invite(p:Page,context:BrowserContext){await context.grantPermissions([\"clipboard-read\",\"clipboard-write\"],{origin:new URL(p.url()).origin});await p.getByRole(\"button\",{name:\"Share board\",exact:true}).click();await expect(p.getByRole(\"status\").filter({hasText:\"Invite link copied\"})).toBeVisible();const link=await p.evaluate(()=>navigator.clipboard.readText());expect(link).toMatch(/\\/board\\/[^#]+#key=[a-f0-9]{64}$/);return link}\n> 32 | export async function add(p:Page,kind:string,x:number,y:number){await p.getByRole(\"button\",{name:kind,exact:true}).click();const before=(await state(p)).revision;await p.getByTestId(\"canvas\").click({position:{x,y}});await expect.poll(async()=>(await state(p)).revision).toBe(before+1);await settled(p);const st=await state(p);return (await events(p)).at(-1)!.object.id}\n     |                                                                                                                    ^\n  33 | export async function snap(p:Page,info:TestInfo,label:string){const folder=path.resolve(\"../artifacts/browser-qa/screenshots\",process.env.QA_RUN_ID||\"latest\");fs.mkdirSync(folder,{recursive:true});const file=path.join(folder,label+\".png\");await p.screenshot({path:file,fullPage:true,mask:[p.getByLabel(\"Invite link\")]});await info.attach(label,{path:file,contentType:\"image/png\"})}\n  34 | export async function assertPersisted(p:Page){const st=await state(p);const es=await events(p);expect(es.map(e=>e.revision)).toEqual(Array.from({length:st.revision},(_,i)=>i+1));expect(new Set(es.map(e=>e.operation.id)).size).toBe(es.length);const replay:State={...st,revision:0,objects:{}};for(const e of es){replay.objects[e.object.id]=e.object;replay.revision=e.revision}expect(replay).toEqual(st);\n  35 |  // Compare the actual SQL state, not just the HTTP representation."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "[WORKSPACE]\\web\\e2e\\qa\\helpers.ts",
+                        "column": 116,
+                        "line": 32
+                      },
+                      "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Sticky note', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"\" aria-pressed=\"false\" title=\"Sticky note (N)\" aria-label=\"Sticky note\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span>…</span> from <aside class=\"history-panel\">…</aside> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span>…</span> from <aside class=\"history-panel\">…</aside> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span>…</span> from <aside class=\"history-panel\">…</aside> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n   at qa\\helpers.ts:32\n\n  30 | export async function settled(p:Page){await expect(p.locator(\".connection\")).not.toContainText(\"pending\");await expect.poll(async()=>Number((await p.getByTestId(\"revision\").innerText()).replace(\"REV \",\"\"))).toBe((await state(p)).revision)}\n  31 | export async function invite(p:Page,context:BrowserContext){await context.grantPermissions([\"clipboard-read\",\"clipboard-write\"],{origin:new URL(p.url()).origin});await p.getByRole(\"button\",{name:\"Share board\",exact:true}).click();await expect(p.getByRole(\"status\").filter({hasText:\"Invite link copied\"})).toBeVisible();const link=await p.evaluate(()=>navigator.clipboard.readText());expect(link).toMatch(/\\/board\\/[^#]+#key=[a-f0-9]{64}$/);return link}\n> 32 | export async function add(p:Page,kind:string,x:number,y:number){await p.getByRole(\"button\",{name:kind,exact:true}).click();const before=(await state(p)).revision;await p.getByTestId(\"canvas\").click({position:{x,y}});await expect.poll(async()=>(await state(p)).revision).toBe(before+1);await settled(p);const st=await state(p);return (await events(p)).at(-1)!.object.id}\n     |                                                                                                                    ^\n  33 | export async function snap(p:Page,info:TestInfo,label:string){const folder=path.resolve(\"../artifacts/browser-qa/screenshots\",process.env.QA_RUN_ID||\"latest\");fs.mkdirSync(folder,{recursive:true});const file=path.join(folder,label+\".png\");await p.screenshot({path:file,fullPage:true,mask:[p.getByLabel(\"Invite link\")]});await info.attach(label,{path:file,contentType:\"image/png\"})}\n  34 | export async function assertPersisted(p:Page){const st=await state(p);const es=await events(p);expect(es.map(e=>e.revision)).toEqual(Array.from({length:st.revision},(_,i)=>i+1));expect(new Set(es.map(e=>e.operation.id)).size).toBe(es.length);const replay:State={...st,revision:0,objects:{}};for(const e of es){replay.objects[e.object.id]=e.object;replay.revision=e.revision}expect(replay).toEqual(st);\n  35 |  // Compare the actual SQL state, not just the HTTP representation.\n    at add ([WORKSPACE]\\web\\e2e\\qa\\helpers.ts:32:116)\n    at [WORKSPACE]\\web\\e2e\\browser-qa.spec.ts:36:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:03:01.293Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "mobile-home",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\\attachments\\mobile-home-a689b40fa21bb9906cac407945cb6f454d7b09da.png"
+                    },
+                    {
+                      "name": "mobile-empty",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\\attachments\\mobile-empty-6fc064ce8c4e5f811329bacf3594518b8d667457.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\\test-failed-1.png"
+                    },
+                    {
+                      "name": "Console and network diagnostics",
+                      "contentType": "application/json",
+                      "body": "W10="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "[WORKSPACE]\\artifacts\\browser-qa\\runs\\repro-controls\\failures\\browser-qa-mobile-new-user-c3ce2-s-and-history-remain-usable\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "[WORKSPACE]\\web\\e2e\\qa\\helpers.ts",
+                    "column": 116,
+                    "line": 32
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8a5aec748d9bbf9ecb98-6a84f3e480a98e3bce56",
+          "file": "browser-qa.spec.ts",
+          "line": 33,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-24T10:02:12.886Z",
+    "duration": 64453.345,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

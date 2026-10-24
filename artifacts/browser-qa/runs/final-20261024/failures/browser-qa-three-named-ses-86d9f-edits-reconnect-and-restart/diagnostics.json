@@ -1,0 +1,22 @@
+[
+  {
+    "kind": "network",
+    "message": "http://localhost:8081/api/boards/eca269ef38cca8066f21ccba53d6900b/events?after=0 net::ERR_INTERNET_DISCONNECTED",
+    "expected": true
+  },
+  {
+    "kind": "console",
+    "message": "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
+    "expected": true
+  },
+  {
+    "kind": "console",
+    "message": "WebSocket connection to 'ws://localhost:8080/api/boards/eca269ef38cca8066f21ccba53d6900b/ws?after=6&name=QA%20Cara' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "kind": "console",
+    "message": "WebSocket connection to 'ws://localhost:8080/api/boards/eca269ef38cca8066f21ccba53d6900b/ws?after=6&name=QA%20Alice' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  }
+]

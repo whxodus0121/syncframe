@@ -1,0 +1,27 @@
+[
+  {
+    "Name": "syncframe-api-1",
+    "MaxCPU": 73.06,
+    "LastMemory": "20.68MiB / 192MiB"
+  },
+  {
+    "Name": "syncframe-api2-1",
+    "MaxCPU": 6.66,
+    "LastMemory": "10.15MiB / 192MiB"
+  },
+  {
+    "Name": "syncframe-kafka-1",
+    "MaxCPU": 119.7,
+    "LastMemory": "428MiB / 640MiB"
+  },
+  {
+    "Name": "syncframe-mysql-1",
+    "MaxCPU": 57.48,
+    "LastMemory": "497.7MiB / 512MiB"
+  },
+  {
+    "Name": "syncframe-redis-1",
+    "MaxCPU": 3.52,
+    "LastMemory": "8.934MiB / 96MiB"
+  }
+]

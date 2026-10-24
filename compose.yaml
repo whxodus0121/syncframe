@@ -1,0 +1,89 @@
+name: syncframe
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: local-root-only
+      MYSQL_DATABASE: syncframe
+      MYSQL_USER: syncframe
+      MYSQL_PASSWORD: syncframe
+    command: ["--innodb-buffer-pool-size=96M", "--max-connections=80"]
+    ports: ["127.0.0.1:${MYSQL_PORT:-33060}:3306"]
+    volumes: ["mysql-data:/var/lib/mysql"]
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -usyncframe -psyncframe --silent"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+  redis:
+    image: redis:7.4-alpine
+    command: ["redis-server", "--maxmemory", "48mb", "--maxmemory-policy", "allkeys-lru", "--save", "", "--appendonly", "no"]
+    ports: ["127.0.0.1:${REDIS_PORT:-63790}:6379"]
+    mem_limit: 96m
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+  kafka:
+    image: apache/kafka:4.0.1
+    ports: ["127.0.0.1:${KAFKA_PORT:-19092}:19092"]
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:19092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,EXTERNAL://127.0.0.1:${KAFKA_PORT:-19092}
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_NUM_PARTITIONS: 1
+      KAFKA_LOG_RETENTION_HOURS: 24
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_HEAP_OPTS: -Xms128m -Xmx256m
+    volumes: ["kafka-data:/var/lib/kafka/data"]
+    mem_limit: 640m
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 20s
+  api:
+    build: .
+    environment: &app-env
+      MYSQL_DSN: syncframe:syncframe@tcp(mysql:3306)/syncframe?parseTime=true&timeout=3s&readTimeout=5s&writeTimeout=5s
+      REDIS_ADDR: redis:6379
+      KAFKA_BROKER: kafka:9092
+      WEB_DIR: /app/web
+    ports: ["127.0.0.1:${APP_PORT:-8080}:8080"]
+    mem_limit: 192m
+    depends_on:
+      mysql: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/readyz"]
+      interval: 3s
+      timeout: 2s
+      retries: 30
+  api2:
+    profiles: ["multi"]
+    build: .
+    environment: *app-env
+    ports: ["127.0.0.1:${APP2_PORT:-8081}:8080"]
+    mem_limit: 192m
+    depends_on:
+      mysql: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/readyz"]
+      interval: 3s
+      timeout: 2s
+      retries: 30
+volumes:
+  mysql-data:
+  kafka-data:

@@ -1,0 +1,11 @@
+{
+  "dockerResources": "12 CPUs / 8259420160 bytes",
+  "compose": "5.0.2",
+  "go": "go version go1.26.10 windows/amd64",
+  "docker": "29.2.0",
+  "node": "v24.19.0",
+  "gomaxprocsLoad": 4,
+  "at": "2026-10-24T11:08:25.3734462Z",
+  "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+  "workload": "real WebSocket, persistent existing demo volumes; Compose limits unchanged"
+}

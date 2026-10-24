@@ -1,0 +1,98 @@
+Checking compose
+ Container syncframe-api-1 Started 
+ Container syncframe-api2-1 Started 
+ Container syncframe-redis-1 Waiting 
+ Container syncframe-kafka-1 Waiting 
+ Container syncframe-api-1 Waiting 
+ Container syncframe-api2-1 Waiting 
+ Container syncframe-mysql-1 Waiting 
+ Container syncframe-kafka-1 Healthy 
+ Container syncframe-mysql-1 Healthy 
+ Container syncframe-redis-1 Healthy 
+ Container syncframe-api2-1 Healthy 
+ Container syncframe-api-1 Healthy 
+Checking go-tests
+--- PASS: TestMySQLRollbackInjectedFailure (0.11s)
+=== RUN   TestAuditIdempotence
+--- PASS: TestAuditIdempotence (0.04s)
+PASS
+ok  	syncframe/internal/store	2.153s
+=== RUN   TestAPISecurityAndWebSocketRecovery
+--- PASS: TestAPISecurityAndWebSocketRecovery (0.12s)
+=== RUN   TestMultiServerAndInfrastructureFaults
+    system_test.go:204: TEST_DOCKER_FAULTS=1 required
+--- SKIP: TestMultiServerAndInfrastructureFaults (0.00s)
+PASS
+ok  	syncframe/tests	1.371s
+Checking go-vet
+Checking go-security
+No vulnerabilities found.
+Checking frontend-install
+
+added 47 packages, and audited 48 packages in 12s
+
+10 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   esbuild@0.28.2 (postinstall: node install.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+Checking frontend-tests
+> syncframe-web@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.5 [WORKSPACE]/web
+
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  19:18:40
+   Duration  231ms (transform 63%, import 21%, tests 8%, worker 7%)
+
+Checking frontend-build
+> syncframe-web@1.0.0 build
+> tsc -b && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 1580 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.57 kB │ gzip:  0.38 kB
+dist/assets/index-Du2r2o1w.css   21.85 kB │ gzip:  5.29 kB
+dist/assets/index-CNFuBF-s.js   258.50 kB │ gzip: 81.33 kB
+✓ built in 2.63s
+Checking frontend-security
+found 0 vulnerabilities
+Checking browser-install
+Checking browser-tests
+  ok  4 e2e\browser-qa.spec.ts:165:1 › time machine pause, all speeds, overlay and full replay preserve the changing live document (5.2s)
+  ok  5 e2e\browser-qa.spec.ts:249:3 › desktop: new-user editing, zoomed drag, properties and history remain usable (3.5s)
+  ok  6 e2e\browser-qa.spec.ts:249:3 › tablet: new-user editing, zoomed drag, properties and history remain usable (3.4s)
+  ok  7 e2e\browser-qa.spec.ts:249:3 › mobile: new-user editing, zoomed drag, properties and history remain usable (3.1s)
+  ok  8 e2e\browser-qa.spec.ts:343:1 › invalid invite offers a path back to the workspace (574ms)
+  ok  9 e2e\browser-qa.spec.ts:364:1 › unsubmitted text and dimension drafts survive another user's committed patch (5.4s)
+  ok 10 e2e\browser-qa.spec.ts:414:1 › a delayed real history response shows loading rather than the live document (1.1s)
+  ok 11 e2e\browser-qa.spec.ts:450:1 › initial board loading is visible while a real state response is delayed (1.1s)
+  ok 12 e2e\collaboration.spec.ts:7:1 › two browser contexts edit, resize, recolor, recover offline edits and replay history (9.9s)
+  ok 13 e2e\collaboration.spec.ts:149:1 › landing page and starter board are functional at desktop and phone sizes (1.2s)
+
+  13 passed (59.8s)
+Redacted local test capabilities in 0 trace entries. DOM, actions and timings retained.
+Checking infrastructure-regression
+    system_test.go:242: docker compose start redis
+    system_test.go:256: SCENARIO 7 PASS: Redis outage, cross-server polling fallback, presence recovery
+    system_test.go:259: docker compose restart api
+    system_test.go:276: SCENARIO 6 PASS: real Go container restarted; state, capability and missing history restored
+    system_test.go:277: docker compose stop kafka
+    system_test.go:289: docker compose start kafka
+    system_test.go:363: SCENARIO 8 PASS: broker outage queued outbox, restart delivered all four events, two real duplicates consumed once
+    system_test.go:364: docker compose start kafka
+    system_test.go:364: docker compose start redis
+--- PASS: TestMultiServerAndInfrastructureFaults (67.06s)
+PASS
+ok  	syncframe/tests	68.210s
+PASS: browser QA and required regressions. Evidence: [WORKSPACE]\artifacts\browser-qa\runs\final-20261024

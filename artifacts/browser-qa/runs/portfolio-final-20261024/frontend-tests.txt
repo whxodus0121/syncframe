@@ -1,0 +1,13 @@
+
+> syncframe-web@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.5 [WORKSPACE]/web
+
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  19:59:58
+   Duration  256ms (transform 63%, import 21%, tests 8%, worker 8%)
+
